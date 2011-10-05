@@ -54,6 +54,11 @@ int GetTextureInfo(int ColourType)
     return ret;
 };
 
+void LoadPNG(GLubyte *imageData, unsigned int &width, unsigned& height)
+{
+    
+}
+
 void AssetManager::LoadImage(const char *filename)
 {
     Texture texture(filename);

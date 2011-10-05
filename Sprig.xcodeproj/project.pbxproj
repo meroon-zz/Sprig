@@ -26,6 +26,7 @@
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
 		966D2385142FC5330043F293 /* spriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 966D2384142FC5330043F293 /* spriteSheet.png */; };
 		966D23B0142FF93F0043F293 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D23AE142FF93E0043F293 /* Texture.cpp */; };
+		96AE536D143C275C009BE8EC /* SprigFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AE536B143C275B009BE8EC /* SprigFile.cpp */; };
 		96C9AB50142C3E6F000D6634 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB4E142C3E6F000D6634 /* Sprite.cpp */; };
 		96C9AB54142C4B45000D6634 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB52142C4B45000D6634 /* Color.cpp */; };
 		96C9AB57142C500D000D6634 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB55142C500C000D6634 /* Rectangle.cpp */; };
@@ -67,6 +68,8 @@
 		966D2384142FC5330043F293 /* spriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spriteSheet.png; sourceTree = "<group>"; };
 		966D23AE142FF93E0043F293 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		966D23AF142FF93F0043F293 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		96AE536B143C275B009BE8EC /* SprigFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigFile.cpp; sourceTree = "<group>"; };
+		96AE536C143C275C009BE8EC /* SprigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigFile.h; sourceTree = "<group>"; };
 		96C9AB4E142C3E6F000D6634 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		96C9AB4F142C3E6F000D6634 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		96C9AB52142C4B45000D6634 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				966D2380142FBD0F0043F293 /* EnvironmentData.cpp */,
 				966D23AF142FF93F0043F293 /* Texture.h */,
 				966D23AE142FF93E0043F293 /* Texture.cpp */,
+				96AE536B143C275B009BE8EC /* SprigFile.cpp */,
+				96AE536C143C275C009BE8EC /* SprigFile.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */,
 				966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */,
 				966D23B0142FF93F0043F293 /* Texture.cpp in Sources */,
+				96AE536D143C275C009BE8EC /* SprigFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

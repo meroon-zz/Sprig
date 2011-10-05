@@ -16,4 +16,7 @@ public:
     
     void LoadImage(const char *filename);
     void CreateNoisyTexture(const char * key, const int width, const int height);
+    
+private:
+    void LoadPNG(GLubyte *imageData, unsigned int &width, unsigned &height); 
 };
