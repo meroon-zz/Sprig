@@ -71,7 +71,7 @@ void Renderer::DrawRect(Rectangle rect, Color color)
 }
 
 void Renderer::DrawTexture(int x, int y, Texture &texture)
-{	
+{	    
     GLfloat vertices[] = {
         x,  _viewRect.height - y, 0.0,
         x,  _viewRect.height - (y + texture.height), 0.0,
@@ -88,10 +88,10 @@ void Renderer::DrawTexture(int x, int y, Texture &texture)
     };
     
     GLfloat texCoords[] = {
-     0.0, 1.0,
      0.0, 0.0,
-     1.0, 1.0,		
-     1.0, 0.0
+     0.0, 1.0,
+     1.0, 0.0,		
+     1.0, 1.0
      };
 	
 	
@@ -100,7 +100,7 @@ void Renderer::DrawTexture(int x, int y, Texture &texture)
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     
     glLoadIdentity();
-    glTranslatef(0.0, 0.0, -3.0);
+    glTranslatef(0.0, 0.0, -50.0);
 	
     glBindTexture(GL_TEXTURE_2D, texture.name);
     

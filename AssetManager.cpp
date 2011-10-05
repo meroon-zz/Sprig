@@ -157,7 +157,7 @@ void AssetManager::LoadImage(const char *filename)
             break;
     }
     
-    glTexImage2D(GL_TEXTURE_2D, 0, components, texture.width, texture.height, 0, glcolours, GL_UNSIGNED_BYTE, pixels);
+    glTexImage2D(GL_TEXTURE_2D, 0, glcolours, texture.width, texture.height, 0, glcolours, GL_UNSIGNED_BYTE, pixels);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -175,9 +175,9 @@ void AssetManager::LoadImage(const char *filename)
     textures.push_back(texture);
 }
 
-void AssetManager::CreateNoisyTexture(const char * key)
-{    
-    Texture texture(key, 80, 80);
+void AssetManager::CreateNoisyTexture(const char * key, const int width, const int height)
+{     
+    Texture texture(key, width, height);
     const unsigned int components = 4;
     
     
@@ -195,18 +195,26 @@ void AssetManager::CreateNoisyTexture(const char * key)
         pitr1 += 4;
     }
     
+    glEnable(GL_TEXTURE_2D);
+    
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    
     glGenTextures(1, &texture.name);    
     glBindTexture(GL_TEXTURE_2D, texture.name); 
-    glTexImage2D(GL_TEXTURE_2D, 0, components, texture.width, texture.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     
+    glBlendFunc(GL_ONE, GL_SRC_COLOR);
+    
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture.width, texture.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    
     free(pixels);
     
-    printf("Created texture with key: %s  name: %d", texture.key, texture.name);
+    printf("Created texture with key: %s  name: %d  error: %x\n", texture.key, texture.name, glGetError());
     
     textures.push_back(texture);
 }

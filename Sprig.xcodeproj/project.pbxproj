@@ -148,8 +148,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				32691226142AD96300305931 /* QuartzCore.framework */,
-				3269122A142AD97000305931 /* OpenGLES.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -166,6 +164,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32691226142AD96300305931 /* QuartzCore.framework */,
+				3269122A142AD97000305931 /* OpenGLES.framework */,
 				9653066F1432D0290088370F /* libz.1.1.3.dylib */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,

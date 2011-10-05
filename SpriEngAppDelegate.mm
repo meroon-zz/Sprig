@@ -1,5 +1,7 @@
 
 #import "SpriEngAppDelegate.h"
+#import "OpenGLTexture3D.h"
+
 #include "Game.h"
 #include "EnvironmentData.h"
 
@@ -20,6 +22,7 @@ Game _game;
 - (void)setupView:(GLView *)theView
 {	
     //[OpenGLTexture3D loadTextureWithFilename:@"spritesheet.png"];
+    //[[OpenGLTexture3D alloc] initWithFilename:@"sprite.png" width:64 height:64];
     
     EnvironmentData data;
     data.basePath = std::string([[[NSBundle mainBundle] bundlePath] UTF8String]); 

@@ -15,5 +15,5 @@ public:
     std::vector<Texture> textures;
     
     void LoadImage(const char *filename);
-    void CreateNoisyTexture(const char * key);
+    void CreateNoisyTexture(const char * key, const int width, const int height);
 };

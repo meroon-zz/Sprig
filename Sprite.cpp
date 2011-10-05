@@ -11,7 +11,12 @@
 
 void Sprite::Draw(Renderer renderer)
 {    
-    Texture *texture = Game::assetManager.GetTextureWithKey("noise");
+    //renderer.DrawRect(rect, Color(0.0, 1.0, 0.5, 1.0));
+    
+    Texture *texture = Game::assetManager.GetTextureWithKey("sprite.png");
+    
+    //Texture texture("sprite", 64, 64);
+    //texture.name = 2;
     
     renderer.DrawTexture(rect.x, rect.y, *texture);
 }
