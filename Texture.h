@@ -7,8 +7,8 @@ class Texture
 {
   public:
     
-    Texture(const char *key) : name(0), width(1), height(1) { this->key = key; }
-    Texture(const char *key, int width, int height) : name(0)
+    Texture(std::string &key) : name(0), offsetX(0), offsetY(0), width(1), height(1) { this->key = key; }
+    Texture(std::string &key, int width, int height) : name(0), offsetX(0), offsetY(0)
     {
         this->key = key;
         this->width = width;
@@ -17,8 +17,10 @@ class Texture
     
     GLuint name;
     
+    int offsetX;
+    int offsetY;
     unsigned int width;
     unsigned int height;
     
-    const char *key;
+    std::string key;
 };  

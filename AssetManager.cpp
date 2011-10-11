@@ -10,26 +10,85 @@
 #include "Game.h"
 #include "png.h"
 #include "MathUtil.h"
+#include "SprigFileSystem.h"
 
 
 #include <cstdio>
 #include <iostream>
-#include <string>
 
-Texture* AssetManager::GetTextureWithKey(const char *key)
+
+
+using std::string;
+
+Texture* AssetManager::GetTexture(std::string &key)
 {
-    std::vector<Texture>::iterator itr;
+    std::map<std::string, Texture*>::iterator itr;
     
-    for (itr = textures.begin(); itr != textures.end(); ++itr) 
+    itr = textureFiles.find((const std::string)key);
+    
+    if(itr != textureFiles.end())
     {
-        if (itr->key == key) 
-        {
-            return &(*itr);  
-        }
+        return itr->second;
     }
     
     return NULL;    
 }
+
+TiXmlDocument* AssetManager::GetXMLFile(std::string &key)
+{
+    std::map<std::string, TiXmlDocument*>::iterator itr;
+    
+    itr = xmlFiles.find((const std::string)key);
+    
+    if(itr != xmlFiles.end())
+    {        
+        return itr->second;
+    }
+    
+    return  NULL;    
+}
+
+std::vector<Texture *> AssetManager::GetTextures(std::string &configKey, std::string &textureKey)
+{
+    std::vector<Texture *> aniTextures;
+    TiXmlDocument *doc = GetXMLFile(configKey);
+    Texture *mainTexture = GetTexture(textureKey);
+    Texture *subTexture;
+    
+    doc->Print(stdout);
+    
+    TiXmlNode *atlasNode = doc->FirstChild("TextureAtlas");
+    TiXmlElement *atlas = atlasNode->ToElement();
+    TiXmlElement *textureElement;
+    
+    for(textureElement = atlas->FirstChildElement(); textureElement; textureElement = textureElement->NextSiblingElement())
+    {        
+        subTexture = ParseTextureForElement(textureElement);
+        subTexture->name = mainTexture->name;
+        
+        printf("the name of the texture: %d", subTexture->name);
+        
+        aniTextures.push_back(subTexture);
+    }
+    
+    return aniTextures;
+}
+
+Texture* AssetManager::ParseTextureForElement(TiXmlElement *element)
+{
+    string key = string(element->Attribute("name"));
+    
+    Texture *texture = new Texture(key);
+    element->QueryIntAttribute("x", &texture->offsetX);
+    element->QueryIntAttribute("y", &texture->offsetY);
+    element->QueryUnsignedAttribute("height", &texture->width); //height and width are swapped because of a bug in zwoptex exporting sparrow XML
+    element->QueryUnsignedAttribute("width", &texture->height);
+    
+    printf("Texture  key: %s  x: %d  y: %d  width: %d  height: %d\n", texture->key.c_str(), texture->offsetX, texture->offsetY, texture->width, texture->height);
+    return texture;
+}
+
+
 
 int GetTextureInfo(int ColourType)
 {
@@ -54,28 +113,52 @@ int GetTextureInfo(int ColourType)
     return ret;
 };
 
-void LoadPNG(GLubyte *imageData, unsigned int &width, unsigned& height)
+void AssetManager::LoadXMLFile(std::string &filename)
+{
+    string  fullPath = Game::environmentData.basePath + "/" + filename;
+    
+    TiXmlDocument *doc = new TiXmlDocument(fullPath.c_str());
+    
+    bool loadOkay = doc->LoadFile();
+    
+    if ( !loadOkay )
+    {
+        printf( "Could not load test file '%s'. Error='%s'. Exiting.\n", fullPath.c_str(), doc->ErrorDesc() );
+        exit( 1 );
+    }
+    
+    //doc->Print( stdout );  
+    
+    xmlFiles.insert(std::pair<std::string, TiXmlDocument*>(filename, doc));
+}
+
+
+void AssetManager::LoadPNG(GLubyte *imageData, unsigned int &width, unsigned& height)
 {
     
 }
 
-void AssetManager::LoadImage(const char *filename)
+void AssetManager::LoadImage(std::string &filename)
 {
-    Texture texture(filename);
+    Texture *texture = new Texture(filename);
     png_structp png_ptr = NULL;
     png_infop info_ptr = NULL;
     png_bytep *row_pointers = NULL;
     int bitDepth, colourType;
     
-    FILE *pngFile = fopen(std::string(Game::environmentData.basePath + "/" + filename).c_str(), "rb");
+    string  fullPath = Game::environmentData.basePath;
+    fullPath += "/";
+    fullPath += filename;
+    
+    SprigFile *pngFile = SprigFileSystem::open(fullPath.c_str(), "rb");
     
     if(!pngFile)
         return;
     
     png_byte sig[8];
     
-    fread(&sig, 8, sizeof(png_byte), pngFile);
-    rewind(pngFile);//so when we init io it won't bitch
+    fread(&sig, 8, sizeof(png_byte), pngFile->file);
+    rewind(pngFile->file);//so when we init io it won't bitch
     if(!png_check_sig(sig, 8))
         return;
     
@@ -92,7 +175,7 @@ void AssetManager::LoadImage(const char *filename)
     if(!info_ptr)
         return;
     
-    png_init_io(png_ptr, pngFile);
+    png_init_io(png_ptr, pngFile->file);
     
     png_read_info(png_ptr, info_ptr);
     
@@ -117,7 +200,7 @@ void AssetManager::LoadImage(const char *filename)
     png_read_update_info(png_ptr, info_ptr);
     
     
-    png_get_IHDR(png_ptr, info_ptr, &texture.width, &texture.height,
+    png_get_IHDR(png_ptr, info_ptr, &texture->width, &texture->height,
                  &bitDepth, &colourType, NULL, NULL, NULL);
     
     int components = GetTextureInfo(colourType);
@@ -129,21 +212,21 @@ void AssetManager::LoadImage(const char *filename)
         return;
     }
     
-    GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (texture.width * texture.height * components));
+    GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (texture->width * texture->height * components));
     
-    row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * texture.height);
+    row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * texture->height);
     
-    for(int i = 0; i < texture.height; ++i)
-        row_pointers[i] = (png_bytep)(pixels + (i * texture.width * components));
+    for(int i = 0; i < texture->height; ++i)
+        row_pointers[i] = (png_bytep)(pixels + (i * texture->width * components));
     
     png_read_image(png_ptr, row_pointers);
     png_read_end(png_ptr, NULL);
     
     
     // make it
-    glGenTextures(1, &texture.name);
+    glGenTextures(1, &texture->name);
     // bind it
-    glBindTexture(GL_TEXTURE_2D, texture.name);
+    glBindTexture(GL_TEXTURE_2D, texture->name);
     
     GLuint glcolours;
     
@@ -162,7 +245,7 @@ void AssetManager::LoadImage(const char *filename)
             break;
     }
     
-    glTexImage2D(GL_TEXTURE_2D, 0, glcolours, texture.width, texture.height, 0, glcolours, GL_UNSIGNED_BYTE, pixels);
+    glTexImage2D(GL_TEXTURE_2D, 0, glcolours, texture->width, texture->height, 0, glcolours, GL_UNSIGNED_BYTE, pixels);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -173,22 +256,22 @@ void AssetManager::LoadImage(const char *filename)
     
     png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
     
-    fclose(pngFile);
+    delete pngFile;
     free(row_pointers);
     free(pixels);
     
-    textures.push_back(texture);
+    textureFiles.insert(std::pair<std::string, Texture*>(filename, texture));
 }
 
-void AssetManager::CreateNoisyTexture(const char * key, const int width, const int height)
+void AssetManager::CreateNoisyTexture(std::string &key, const int width, const int height)
 {     
-    Texture texture(key, width, height);
+    Texture *texture = new Texture(key, width, height);
     const unsigned int components = 4;
     
     
-    GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (texture.width * texture.height * components));
+    GLubyte *pixels = (GLubyte *)malloc(sizeof(GLubyte) * (texture->width * texture->height * components));
     GLubyte *pitr1 = pixels;    
-    GLubyte *pitr2 = pixels + (texture.width * texture.height * components);
+    GLubyte *pitr2 = pixels + (texture->width * texture->height * components);
     
     while (pitr1 != pitr2) {
         
@@ -204,8 +287,8 @@ void AssetManager::CreateNoisyTexture(const char * key, const int width, const i
     
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     
-    glGenTextures(1, &texture.name);    
-    glBindTexture(GL_TEXTURE_2D, texture.name); 
+    glGenTextures(1, &texture->name);    
+    glBindTexture(GL_TEXTURE_2D, texture->name); 
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); 
@@ -215,11 +298,11 @@ void AssetManager::CreateNoisyTexture(const char * key, const int width, const i
     glBlendFunc(GL_ONE, GL_SRC_COLOR);
     
     
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture.width, texture.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture->width, texture->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
     
     free(pixels);
     
-    printf("Created texture with key: %s  name: %d  error: %x\n", texture.key, texture.name, glGetError());
+    printf("Created texture with key: %s  name: %d  error: %x\n", texture->key.c_str(), texture->name, glGetError());
     
-    textures.push_back(texture);
+    textureFiles.insert(std::pair<std::string, Texture*>(key, texture));
 }

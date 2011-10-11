@@ -21,17 +21,21 @@
 		3269122B142AD97000305931 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3269122A142AD97000305931 /* OpenGLES.framework */; };
 		326912B4142AF03A00305931 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912B3142AF03A00305931 /* Game.cpp */; };
 		326912F8142AF6E800305931 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912F7142AF6E800305931 /* Renderer.cpp */; };
+		9633ECC214424D4D008BE18B /* run_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9633ECC014424D4D008BE18B /* run_test.png */; };
+		9633ECC314424D4D008BE18B /* run_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9633ECC114424D4D008BE18B /* run_test.xml */; };
+		9633ED8914425083008BE18B /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2014425083008BE18B /* tinystr.cpp */; };
+		9633ED8A14425083008BE18B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2214425083008BE18B /* tinyxml.cpp */; };
+		9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2614425083008BE18B /* tinyxmlerror.cpp */; };
+		9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2714425083008BE18B /* tinyxmlparser.cpp */; };
 		965306701432D0290088370F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9653066F1432D0290088370F /* libz.1.1.3.dylib */; };
 		966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D237C142FBBA10043F293 /* AssetManager.cpp */; };
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
-		966D2385142FC5330043F293 /* spriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 966D2384142FC5330043F293 /* spriteSheet.png */; };
 		966D23B0142FF93F0043F293 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D23AE142FF93E0043F293 /* Texture.cpp */; };
-		96AE536D143C275C009BE8EC /* SprigFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AE536B143C275B009BE8EC /* SprigFile.cpp */; };
+		96AE536D143C275C009BE8EC /* SprigFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */; };
 		96C9AB50142C3E6F000D6634 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB4E142C3E6F000D6634 /* Sprite.cpp */; };
 		96C9AB54142C4B45000D6634 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB52142C4B45000D6634 /* Color.cpp */; };
 		96C9AB57142C500D000D6634 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB55142C500C000D6634 /* Rectangle.cpp */; };
 		96DD36231432E54B000FC678 /* libpng15.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DD36221432E54B000FC678 /* libpng15.a */; };
-		96DD36301433743B000FC678 /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DD362F1433743B000FC678 /* sprite.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,16 +64,23 @@
 		32691392142B03E900305931 /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Sprig_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprig_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Sprig-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprig-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9633ECC014424D4D008BE18B /* run_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run_test.png; sourceTree = "<group>"; };
+		9633ECC114424D4D008BE18B /* run_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = run_test.xml; sourceTree = "<group>"; };
+		9633ED2014425083008BE18B /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		9633ED2114425083008BE18B /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		9633ED2214425083008BE18B /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		9633ED2314425083008BE18B /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		9633ED2614425083008BE18B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		9633ED2714425083008BE18B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		9653066F1432D0290088370F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		966D237C142FBBA10043F293 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		966D237D142FBBA10043F293 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
 		966D2380142FBD0F0043F293 /* EnvironmentData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnvironmentData.cpp; sourceTree = "<group>"; };
 		966D2381142FBD100043F293 /* EnvironmentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentData.h; sourceTree = "<group>"; };
-		966D2384142FC5330043F293 /* spriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spriteSheet.png; sourceTree = "<group>"; };
 		966D23AE142FF93E0043F293 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		966D23AF142FF93F0043F293 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
-		96AE536B143C275B009BE8EC /* SprigFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigFile.cpp; sourceTree = "<group>"; };
-		96AE536C143C275C009BE8EC /* SprigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigFile.h; sourceTree = "<group>"; };
+		96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigFileSystem.cpp; sourceTree = "<group>"; };
+		96AE536C143C275C009BE8EC /* SprigFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigFileSystem.h; sourceTree = "<group>"; };
 		96C9AB4E142C3E6F000D6634 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		96C9AB4F142C3E6F000D6634 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		96C9AB52142C4B45000D6634 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
@@ -80,7 +91,6 @@
 		96DD36241432E565000FC678 /* png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
 		96DD36251432E565000FC678 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
 		96DD36261432E565000FC678 /* pnglibconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
-		96DD362F1433743B000FC678 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,8 +218,8 @@
 				966D2380142FBD0F0043F293 /* EnvironmentData.cpp */,
 				966D23AF142FF93F0043F293 /* Texture.h */,
 				966D23AE142FF93E0043F293 /* Texture.cpp */,
-				96AE536B143C275B009BE8EC /* SprigFile.cpp */,
-				96AE536C143C275C009BE8EC /* SprigFile.h */,
+				96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */,
+				96AE536C143C275C009BE8EC /* SprigFileSystem.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -222,11 +232,24 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		9633ECC414425083008BE18B /* tinyxml */ = {
+			isa = PBXGroup;
+			children = (
+				9633ED2014425083008BE18B /* tinystr.cpp */,
+				9633ED2114425083008BE18B /* tinystr.h */,
+				9633ED2214425083008BE18B /* tinyxml.cpp */,
+				9633ED2314425083008BE18B /* tinyxml.h */,
+				9633ED2614425083008BE18B /* tinyxmlerror.cpp */,
+				9633ED2714425083008BE18B /* tinyxmlparser.cpp */,
+			);
+			path = tinyxml;
+			sourceTree = "<group>";
+		};
 		966D2383142FC50D0043F293 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				96DD362F1433743B000FC678 /* sprite.png */,
-				966D2384142FC5330043F293 /* spriteSheet.png */,
+				9633ECC014424D4D008BE18B /* run_test.png */,
+				9633ECC114424D4D008BE18B /* run_test.xml */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -234,6 +257,7 @@
 		96DD36191432DF7E000FC678 /* libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9633ECC414425083008BE18B /* tinyxml */,
 				96DD36211432E45A000FC678 /* libpng */,
 			);
 			name = libraries;
@@ -301,8 +325,8 @@
 			files = (
 				2860E329111B887F00E27156 /* MainWindow_iPhone.xib in Resources */,
 				2860E32F111B888700E27156 /* MainWindow_iPad.xib in Resources */,
-				966D2385142FC5330043F293 /* spriteSheet.png in Resources */,
-				96DD36301433743B000FC678 /* sprite.png in Resources */,
+				9633ECC214424D4D008BE18B /* run_test.png in Resources */,
+				9633ECC314424D4D008BE18B /* run_test.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +350,11 @@
 				966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */,
 				966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */,
 				966D23B0142FF93F0043F293 /* Texture.cpp in Sources */,
-				96AE536D143C275C009BE8EC /* SprigFile.cpp in Sources */,
+				96AE536D143C275C009BE8EC /* SprigFileSystem.cpp in Sources */,
+				9633ED8914425083008BE18B /* tinystr.cpp in Sources */,
+				9633ED8A14425083008BE18B /* tinyxml.cpp in Sources */,
+				9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */,
+				9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

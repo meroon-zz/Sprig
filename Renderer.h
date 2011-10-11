@@ -16,7 +16,7 @@ public:
 	void Clear();
     
     void DrawRect(Rectangle rect, Color color);
-    void DrawTexture(int x, int y, Texture &texture);
+    void DrawTexture(int x, int y, Texture &texture, int mainWidth, int mainHeight);
     
     Color backgroundColor;
 	

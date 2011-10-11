@@ -1,11 +1,16 @@
 
 
-#include "SprigFile.h"
+#include "SprigFileSystem.h"
 
-SprigFile* SprigFileSystem::open(const char *filename)
+SprigFile::~SprigFile()
+{
+    SprigFileSystem::close(this);
+}
+
+SprigFile* SprigFileSystem::open(const char *filename, const char *options)
 {
     SprigFile *retFile = NULL;
-    FILE *file = fopen(filename, "r");
+    FILE *file = fopen(filename, options);
 
 	if(file) {
 		retFile = new SprigFile(filename);

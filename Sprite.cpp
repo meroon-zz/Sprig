@@ -9,14 +9,37 @@
 #include "Sprite.h"
 #include "Game.h"
 
+#include <string>
+
+using std::string;
+
+void Sprite::Init()
+{
+    string configKey("run_test.xml");
+    string textureKey("run_test.png");
+    
+    mainTexture = Game::assetManager.GetTexture(textureKey);
+    animatedTextures = Game::assetManager.GetTextures(configKey, textureKey);
+    textureItr = animatedTextures.begin();
+}
+
 void Sprite::Draw(Renderer renderer)
 {    
     //renderer.DrawRect(rect, Color(0.0, 1.0, 0.5, 1.0));
     
-    Texture *texture = Game::assetManager.GetTextureWithKey("sprite.png");
+    //string spritesheetKey("spritesheet.png");
+    
+    //Texture *texture = Game::assetManager.GetTexture(spritesheetKey);
     
     //Texture texture("sprite", 64, 64);
     //texture.name = 2;
     
-    renderer.DrawTexture(rect.x, rect.y, *texture);
+    Texture *texture = *textureItr;
+    
+    renderer.DrawTexture(rect.x, rect.y, *texture, mainTexture->width, mainTexture->height);
+    
+    if(++textureItr == animatedTextures.end())
+    {
+        textureItr = animatedTextures.begin();
+    }
 }

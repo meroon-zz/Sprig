@@ -36,7 +36,8 @@ void Renderer::Setup(Rectangle rect, CameraType cameraType)
     }
     
     glEnable(GL_TEXTURE_2D);
-    glBlendFunc(GL_ONE, GL_SRC_COLOR);
+    //glBlendFunc(GL_ONE, GL_SRC_COLOR);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);	
 }
 
@@ -70,7 +71,7 @@ void Renderer::DrawRect(Rectangle rect, Color color)
     glPopMatrix();
 }
 
-void Renderer::DrawTexture(int x, int y, Texture &texture)
+void Renderer::DrawTexture(int x, int y, Texture &texture, int mainWidth, int mainHeight)
 {	    
     GLfloat vertices[] = {
         x,  _viewRect.height - y, 0.0,
@@ -87,13 +88,15 @@ void Renderer::DrawTexture(int x, int y, Texture &texture)
         0.0, 0.0, 1.0
     };
     
+    
     GLfloat texCoords[] = {
-     0.0, 0.0,
-     0.0, 1.0,
-     1.0, 0.0,		
-     1.0, 1.0
+     (GLfloat)texture.offsetX / (GLfloat)mainWidth, (GLfloat)texture.offsetY / (GLfloat)mainHeight,
+     (GLfloat)texture.offsetX / (GLfloat)mainWidth, (GLfloat)(texture.offsetY + texture.height) / (GLfloat)mainHeight,
+     (GLfloat)(texture.offsetX + (GLfloat)texture.width) / mainWidth, (GLfloat)texture.offsetY / (GLfloat)mainHeight,		
+     (GLfloat)(texture.offsetX + (GLfloat)texture.width) / mainWidth, (GLfloat)(texture.offsetY + texture.height) / (GLfloat)mainHeight
      };
 	
+    //printf("uv[0] = %f, %f  uv[1] = %f, %f  uv[2] = %f, %f  uv[3] = %f, %f\n", texCoords[0], texCoords[1], texCoords[2], texCoords[3], texCoords[4], texCoords[5], texCoords[6], texCoords[7]);
 	
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
