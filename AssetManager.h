@@ -29,5 +29,5 @@ public:
 private:
     
     void LoadPNG(GLubyte *imageData, unsigned int &width, unsigned &height); 
-    Texture* ParseTextureForElement(TiXmlElement *element);
+    Texture* ParseTextureForElement(GLuint textName, TiXmlElement *element);
 };

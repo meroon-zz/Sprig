@@ -71,13 +71,13 @@ void Renderer::DrawRect(Rectangle rect, Color color)
     glPopMatrix();
 }
 
-void Renderer::DrawTexture(int x, int y, Texture &texture, int mainWidth, int mainHeight)
+void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
 {	    
     GLfloat vertices[] = {
-        x,  _viewRect.height - y, 0.0,
-        x,  _viewRect.height - (y + texture.height), 0.0,
-        x + texture.width, _viewRect.height - y, 0.0,
-        x + texture.width, _viewRect.height - (y + texture.height), 0.0
+        rect.x,  _viewRect.height - rect.y, 0.0,
+        rect.x,  _viewRect.height - (rect.y + rect.height), 0.0,
+        rect.x + rect.width, _viewRect.height - rect.y, 0.0,
+        rect.x + rect.width, _viewRect.height - (rect.y + rect.height), 0.0
     };
     
     
@@ -88,15 +88,8 @@ void Renderer::DrawTexture(int x, int y, Texture &texture, int mainWidth, int ma
         0.0, 0.0, 1.0
     };
     
-    
-    GLfloat texCoords[] = {
-     (GLfloat)texture.offsetX / (GLfloat)mainWidth, (GLfloat)texture.offsetY / (GLfloat)mainHeight,
-     (GLfloat)texture.offsetX / (GLfloat)mainWidth, (GLfloat)(texture.offsetY + texture.height) / (GLfloat)mainHeight,
-     (GLfloat)(texture.offsetX + (GLfloat)texture.width) / mainWidth, (GLfloat)texture.offsetY / (GLfloat)mainHeight,		
-     (GLfloat)(texture.offsetX + (GLfloat)texture.width) / mainWidth, (GLfloat)(texture.offsetY + texture.height) / (GLfloat)mainHeight
-     };
 	
-    //printf("uv[0] = %f, %f  uv[1] = %f, %f  uv[2] = %f, %f  uv[3] = %f, %f\n", texCoords[0], texCoords[1], texCoords[2], texCoords[3], texCoords[4], texCoords[5], texCoords[6], texCoords[7]);
+    //printf("uv[0] = %f, %f  uv[1] = %f, %f  uv[2] = %f, %f  uv[3] = %f, %f\n", texture.getUV()[0], texture.getUV()[1], texture.getUV()[2], texture.getUV()[3], texture.getUV()[4], texture.getUV()[5], texture.getUV()[6], texture.getUV()[7]);
 	
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
@@ -105,11 +98,11 @@ void Renderer::DrawTexture(int x, int y, Texture &texture, int mainWidth, int ma
     glLoadIdentity();
     glTranslatef(0.0, 0.0, -50.0);
 	
-    glBindTexture(GL_TEXTURE_2D, texture.name);
+    glBindTexture(GL_TEXTURE_2D, texture.textureName);
     
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glNormalPointer(GL_FLOAT, 0, normals);
-    glTexCoordPointer(2, GL_FLOAT, 0, texCoords);
+    glTexCoordPointer(2, GL_FLOAT, 0, texture.getUV());
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
     glDisableClientState(GL_VERTEX_ARRAY);

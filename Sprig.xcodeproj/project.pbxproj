@@ -27,6 +27,7 @@
 		9633ED8A14425083008BE18B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2214425083008BE18B /* tinyxml.cpp */; };
 		9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2614425083008BE18B /* tinyxmlerror.cpp */; };
 		9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2714425083008BE18B /* tinyxmlparser.cpp */; };
+		9633EEDA14450E31008BE18B /* SprigTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */; };
 		965306701432D0290088370F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9653066F1432D0290088370F /* libz.1.1.3.dylib */; };
 		966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D237C142FBBA10043F293 /* AssetManager.cpp */; };
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
@@ -72,6 +73,8 @@
 		9633ED2314425083008BE18B /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		9633ED2614425083008BE18B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		9633ED2714425083008BE18B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigTextureAtlas.cpp; sourceTree = "<group>"; };
+		9633EED914450E31008BE18B /* SprigTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigTextureAtlas.h; sourceTree = "<group>"; };
 		9653066F1432D0290088370F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		966D237C142FBBA10043F293 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		966D237D142FBBA10043F293 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				966D23AE142FF93E0043F293 /* Texture.cpp */,
 				96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */,
 				96AE536C143C275C009BE8EC /* SprigFileSystem.h */,
+				9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */,
+				9633EED914450E31008BE18B /* SprigTextureAtlas.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 				9633ED8A14425083008BE18B /* tinyxml.cpp in Sources */,
 				9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */,
 				9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */,
+				9633EEDA14450E31008BE18B /* SprigTextureAtlas.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

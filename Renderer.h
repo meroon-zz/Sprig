@@ -11,12 +11,12 @@ public:
 	enum CameraType {
 		Orthographic, Perspective
 	};
-	
+    
 	void Setup(Rectangle rect, CameraType cameraType);
 	void Clear();
     
     void DrawRect(Rectangle rect, Color color);
-    void DrawTexture(int x, int y, Texture &texture, int mainWidth, int mainHeight);
+    void DrawTexture(Rectangle& rect, Texture &texture); //renders a texture with clipping
     
     Color backgroundColor;
 	

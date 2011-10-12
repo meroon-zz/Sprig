@@ -9,15 +9,21 @@ class Sprite
 {
     public:
     
+        enum TextureClipType{
+            Clipping, NoClipping
+        };
+    
         Rectangle rect;
         Color backgroundColor;
-
-        void Init();
+    
+        virtual void Init();
         void Draw(Renderer renderer);
+        void ApplyTexture(Texture *texture, TextureClipType clipType);
+        void RemoveTexture();
     
     private:
-    
-        std::vector<Texture *> animatedTextures;
-        std::vector<Texture *>::iterator textureItr;
-        Texture *mainTexture;
+        
+        Texture *_texture;
+        TextureClipType _clipType;
+        Rectangle _clipRect;
 };

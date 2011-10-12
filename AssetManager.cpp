@@ -63,10 +63,10 @@ std::vector<Texture *> AssetManager::GetTextures(std::string &configKey, std::st
     
     for(textureElement = atlas->FirstChildElement(); textureElement; textureElement = textureElement->NextSiblingElement())
     {        
-        subTexture = ParseTextureForElement(textureElement);
-        subTexture->name = mainTexture->name;
+        subTexture = ParseTextureForElement(mainTexture->textureName, textureElement);
+        mainTexture->AddSubTexture(subTexture);
         
-        printf("the name of the texture: %d", subTexture->name);
+        printf("the name of the texture: %d", subTexture->textureName);
         
         aniTextures.push_back(subTexture);
     }
@@ -74,11 +74,11 @@ std::vector<Texture *> AssetManager::GetTextures(std::string &configKey, std::st
     return aniTextures;
 }
 
-Texture* AssetManager::ParseTextureForElement(TiXmlElement *element)
+Texture* AssetManager::ParseTextureForElement(GLuint texName, TiXmlElement *element)
 {
     string key = string(element->Attribute("name"));
     
-    Texture *texture = new Texture(key);
+    Texture *texture = new Texture(key, texName);
     element->QueryIntAttribute("x", &texture->offsetX);
     element->QueryIntAttribute("y", &texture->offsetY);
     element->QueryUnsignedAttribute("height", &texture->width); //height and width are swapped because of a bug in zwoptex exporting sparrow XML
@@ -224,9 +224,9 @@ void AssetManager::LoadImage(std::string &filename)
     
     
     // make it
-    glGenTextures(1, &texture->name);
+    glGenTextures(1, &texture->textureName);
     // bind it
-    glBindTexture(GL_TEXTURE_2D, texture->name);
+    glBindTexture(GL_TEXTURE_2D, texture->textureName);
     
     GLuint glcolours;
     
@@ -265,7 +265,7 @@ void AssetManager::LoadImage(std::string &filename)
 
 void AssetManager::CreateNoisyTexture(std::string &key, const int width, const int height)
 {     
-    Texture *texture = new Texture(key, width, height);
+    Texture *texture = new Texture(key, 0, width, height);
     const unsigned int components = 4;
     
     
@@ -287,8 +287,8 @@ void AssetManager::CreateNoisyTexture(std::string &key, const int width, const i
     
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     
-    glGenTextures(1, &texture->name);    
-    glBindTexture(GL_TEXTURE_2D, texture->name); 
+    glGenTextures(1, &texture->textureName);    
+    glBindTexture(GL_TEXTURE_2D, texture->textureName); 
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); 
@@ -302,7 +302,7 @@ void AssetManager::CreateNoisyTexture(std::string &key, const int width, const i
     
     free(pixels);
     
-    printf("Created texture with key: %s  name: %d  error: %x\n", texture->key.c_str(), texture->name, glGetError());
+    printf("Created texture with key: %s  name: %d  error: %x\n", texture->key.c_str(), texture->textureName, glGetError());
     
     textureFiles.insert(std::pair<std::string, Texture*>(key, texture));
 }
