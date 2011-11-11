@@ -65,8 +65,11 @@ std::vector<Texture *> AssetManager::GetTextures(std::string &configKey, std::st
     {        
         subTexture = ParseTextureForElement(mainTexture->textureName, textureElement);
         mainTexture->AddSubTexture(subTexture);
+        subTexture->ComputeUV();
         
-        printf("the name of the texture: %d", subTexture->textureName);
+        //printf("the name of the texture:  %d", subTexture->textureName);
+        
+        printf("\nuv[0] = %f, %f  uv[1] = %f, %f  uv[2] = %f, %f  uv[3] = %f, %f\n", subTexture->getUV()[0], subTexture->getUV()[1], subTexture->getUV()[2], subTexture->getUV()[3], subTexture->getUV()[4], subTexture->getUV()[5], subTexture->getUV()[6], subTexture->getUV()[7]);
         
         aniTextures.push_back(subTexture);
     }

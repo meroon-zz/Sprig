@@ -21,6 +21,7 @@
 		3269122B142AD97000305931 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3269122A142AD97000305931 /* OpenGLES.framework */; };
 		326912B4142AF03A00305931 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912B3142AF03A00305931 /* Game.cpp */; };
 		326912F8142AF6E800305931 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912F7142AF6E800305931 /* Renderer.cpp */; };
+		962E98DF146C9796008D0BB0 /* Bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E98DD146C9796008D0BB0 /* Bitmap.cpp */; };
 		9633ECC214424D4D008BE18B /* run_test.png in Resources */ = {isa = PBXBuildFile; fileRef = 9633ECC014424D4D008BE18B /* run_test.png */; };
 		9633ECC314424D4D008BE18B /* run_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9633ECC114424D4D008BE18B /* run_test.xml */; };
 		9633ED8914425083008BE18B /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2014425083008BE18B /* tinystr.cpp */; };
@@ -28,6 +29,7 @@
 		9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2614425083008BE18B /* tinyxmlerror.cpp */; };
 		9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2714425083008BE18B /* tinyxmlparser.cpp */; };
 		9633EEDA14450E31008BE18B /* SprigTextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */; };
+		9633EEDD144543DF008BE18B /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633EEDB144543DE008BE18B /* AnimatedSprite.cpp */; };
 		965306701432D0290088370F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9653066F1432D0290088370F /* libz.1.1.3.dylib */; };
 		966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D237C142FBBA10043F293 /* AssetManager.cpp */; };
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
@@ -65,6 +67,8 @@
 		32691392142B03E900305931 /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Sprig_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprig_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Sprig-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprig-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		962E98DD146C9796008D0BB0 /* Bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cpp; sourceTree = "<group>"; };
+		962E98DE146C9796008D0BB0 /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
 		9633ECC014424D4D008BE18B /* run_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run_test.png; sourceTree = "<group>"; };
 		9633ECC114424D4D008BE18B /* run_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = run_test.xml; sourceTree = "<group>"; };
 		9633ED2014425083008BE18B /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 		9633ED2714425083008BE18B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigTextureAtlas.cpp; sourceTree = "<group>"; };
 		9633EED914450E31008BE18B /* SprigTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigTextureAtlas.h; sourceTree = "<group>"; };
+		9633EEDB144543DE008BE18B /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
+		9633EEDC144543DE008BE18B /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		9653066F1432D0290088370F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		966D237C142FBBA10043F293 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		966D237D142FBBA10043F293 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
@@ -225,6 +231,10 @@
 				96AE536C143C275C009BE8EC /* SprigFileSystem.h */,
 				9633EED814450E30008BE18B /* SprigTextureAtlas.cpp */,
 				9633EED914450E31008BE18B /* SprigTextureAtlas.h */,
+				9633EEDB144543DE008BE18B /* AnimatedSprite.cpp */,
+				9633EEDC144543DE008BE18B /* AnimatedSprite.h */,
+				962E98DD146C9796008D0BB0 /* Bitmap.cpp */,
+				962E98DE146C9796008D0BB0 /* Bitmap.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -361,6 +371,8 @@
 				9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */,
 				9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */,
 				9633EEDA14450E31008BE18B /* SprigTextureAtlas.cpp in Sources */,
+				9633EEDD144543DF008BE18B /* AnimatedSprite.cpp in Sources */,
+				962E98DF146C9796008D0BB0 /* Bitmap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

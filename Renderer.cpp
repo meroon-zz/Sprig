@@ -89,7 +89,7 @@ void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
     };
     
 	
-    //printf("uv[0] = %f, %f  uv[1] = %f, %f  uv[2] = %f, %f  uv[3] = %f, %f\n", texture.getUV()[0], texture.getUV()[1], texture.getUV()[2], texture.getUV()[3], texture.getUV()[4], texture.getUV()[5], texture.getUV()[6], texture.getUV()[7]);
+    
 	
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);

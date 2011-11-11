@@ -42,7 +42,6 @@ void Texture::AddSubTexture(Texture *subTexture)
     }
     
     TestAddSubtexture(this, subTexture);
-    
 }
 
 bool Texture::ContainsSubTexture(Texture *subTexture)
@@ -65,8 +64,10 @@ bool Texture::ContainsSubTexture(Texture *subTexture)
 
 void Texture::ComputeUV()
 {
-    GLfloat baseWidth = _parent != NULL ? _parent->width : width;
-    GLfloat baseHeight = _parent != NULL ? _parent->height : height;
+    GLfloat baseWidth = 256.0;//_parent != NULL ? _parent->width : width;
+    GLfloat baseHeight = 256.0;//_parent != NULL ? _parent->height : height;
+    
+    printf("\nsettings the uv[0] %f    %d   %f", (GLfloat)offsetX / baseWidth , offsetX, baseWidth);
     
     _uv[0] = (GLfloat)offsetX / baseWidth;
     _uv[1] = (GLfloat)offsetY / baseHeight;

@@ -17,7 +17,7 @@ class Sprite
         Color backgroundColor;
     
         virtual void Init();
-        void Draw(Renderer renderer);
+        virtual void Draw(Renderer renderer);
         void ApplyTexture(Texture *texture, TextureClipType clipType);
         void RemoveTexture();
     
@@ -26,4 +26,6 @@ class Sprite
         Texture *_texture;
         TextureClipType _clipType;
         Rectangle _clipRect;
+        std::vector<Texture *> _textures;
+        std::vector<Texture *>::iterator _texIter;
 };
