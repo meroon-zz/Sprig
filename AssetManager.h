@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 
-#include "Texture.h"
+#include "SprigTexture.h"
 #include "tinyxml.h"
 
 class AssetManager

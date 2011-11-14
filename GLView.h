@@ -27,7 +27,7 @@
     id <GLViewDelegate> delegate;
 }
 
-@property NSTimeInterval frameRate;
+@property (assign) NSTimeInterval frameRate;
 @property (assign) id <GLViewDelegate> delegate;
 
 - (void)start;

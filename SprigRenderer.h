@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Rectangle.h"
-#include "Color.h"
-#include "Texture.h"
+#include "SprigRectangle.h"
+#include "SprigColor.h"
+#include "SprigTexture.h"
 
 class Renderer  {
 

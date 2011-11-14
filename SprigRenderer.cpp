@@ -1,4 +1,4 @@
-#include "Renderer.h"
+#include "SprigRenderer.h"
 #include <iostream>
 #include "Constants.h"
 
@@ -36,8 +36,8 @@ void Renderer::Setup(Rectangle rect, CameraType cameraType)
     }
     
     glEnable(GL_TEXTURE_2D);
-    //glBlendFunc(GL_ONE, GL_SRC_COLOR);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_ONE, GL_SRC_COLOR);
+    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);	
 }
 
@@ -88,7 +88,13 @@ void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
         0.0, 0.0, 1.0
     };
     
-	
+	static const GLfloat texCoors[] =
+    {
+        1.0, 0.0,
+        0.0, 0.0,
+        1.0, 1.0,
+        1.0, 0.0
+    };
     
 	
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -98,11 +104,11 @@ void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
     glLoadIdentity();
     glTranslatef(0.0, 0.0, -50.0);
 	
-    glBindTexture(GL_TEXTURE_2D, texture.textureName);
+    glBindTexture(GL_TEXTURE_2D, texture.textureID);
     
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glNormalPointer(GL_FLOAT, 0, normals);
-    glTexCoordPointer(2, GL_FLOAT, 0, texture.getUV());
+    glTexCoordPointer(2, GL_FLOAT, 0, texCoors);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
     glDisableClientState(GL_VERTEX_ARRAY);

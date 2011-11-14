@@ -118,6 +118,7 @@
     [timer invalidate];
     timer = newTimer;
 }
+
 - (void)setFrameRate:(NSTimeInterval)rate 
 {
     frameRate = rate;

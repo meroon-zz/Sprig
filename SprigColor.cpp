@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#include "Color.h"
+#include "SprigColor.h"
 
 Color::Color(float red, float green, float blue, float alpha)
 {
