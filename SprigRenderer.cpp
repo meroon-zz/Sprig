@@ -75,11 +75,10 @@ void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
 {	    
     GLfloat vertices[] = {
         rect.x,  _viewRect.height - rect.y, 0.0,
-        rect.x,  _viewRect.height - (rect.y + rect.height), 0.0,
         rect.x + rect.width, _viewRect.height - rect.y, 0.0,
+        rect.x,  _viewRect.height - (rect.y + rect.height), 0.0,    
         rect.x + rect.width, _viewRect.height - (rect.y + rect.height), 0.0
     };
-    
     
     static const GLfloat normals[] = {
         0.0, 0.0, 1.0,
@@ -90,9 +89,9 @@ void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
     
 	static const GLfloat texCoors[] =
     {
-        1.0, 0.0,
-        0.0, 0.0,
+        0.0, 1.0,
         1.0, 1.0,
+        0.0, 0.0,
         1.0, 0.0
     };
     

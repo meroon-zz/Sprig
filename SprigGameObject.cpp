@@ -21,7 +21,6 @@ void GameObject::Draw(Renderer &renderer)
     
     if(showBackground)
     {
-        
         renderer.DrawRect(rect, backgroundColor);
     }
     

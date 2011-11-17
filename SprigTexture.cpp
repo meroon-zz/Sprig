@@ -73,9 +73,11 @@ void Texture::rebuildFromTextureData()
 	}
     
     
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    
 	if(_textureData)
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _width, _height, 0, GL_RGBA, GL_UNSIGNED_BYTE, _textureData);
 }
@@ -97,7 +99,7 @@ void Texture::SetTextureData(GLubyte *textureData)
     
     int dataSize = _width * _height * _pixelSize;
     
-	_textureData = (GLubyte *)malloc(dataSize);
+	_textureData = new GLubyte[dataSize];
 
 	if(textureData)
         memcpy(_textureData, textureData, dataSize);
@@ -114,8 +116,7 @@ unsigned char* Texture::GetTextureData()
 
 void Texture::deleteTextureData()
 {
-    if(_textureData != NULL)
-		free(_textureData);
+    delete [] _textureData;
     
     _textureData = NULL;
 }

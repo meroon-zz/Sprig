@@ -22,14 +22,21 @@ void Game::Init(EnvironmentData envData)
     _renderer.backgroundColor = Color(1.0, 1.0, 1.0, 1.0);
 	_renderer.Setup(environmentData.screenRect, Renderer::Orthographic);
 
-    Bitmap testBitmap = Bitmap(50, 50, true);
-    testBitmap.GenerateNoise();
+    
+    string fullPath = Game::environmentData.basePath;
+    fullPath += "/";
+    fullPath += "sprite.png";
+    
+    Bitmap testBitmap = Bitmap(fullPath);
+    
+    //Bitmap testBitmap = Bitmap(50, 50, true);
+    //testBitmap.GenerateNoise();
     //testBitmap.Fill(0xFF0000FF);
     
     //_gameObject.showBackground = true;
     //_gameObject.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
-    _gameObject.width = 200;
-    _gameObject.height = 200;
+    _gameObject.width = 64;
+    _gameObject.height = 64;
     _gameObject.x = 30;
     _gameObject.y = 30;
     

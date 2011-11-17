@@ -12,7 +12,7 @@ class Bitmap {
 public:
 
     Bitmap(unsigned int width, unsigned int height, bool transparent);
-    Bitmap(const std::string& filepath); 
+    Bitmap(std::string& filepath); 
     
     
     Bitmap();
@@ -26,14 +26,14 @@ public:
     void GenerateNoise();
     void PrintData();
 
-    bool LoadPNG(const std::string& filepath);
+    bool LoadPNG(std::string& filepath);
     
     unsigned int GetWidth();
     unsigned int GetHeight();
 
 private:
 
-    
+    void PrintData(unsigned char *data, unsigned int count);
     void createEmpty(unsigned int width, unsigned int height);
     void setTransparency(bool transparent);
 
