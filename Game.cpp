@@ -27,20 +27,38 @@ void Game::Init(EnvironmentData envData)
     fullPath += "/";
     fullPath += "sprite.png";
     
-    Bitmap testBitmap = Bitmap(fullPath);
+    // BITMAP TESTS
     
+    //Bitmap testBitmap = Bitmap(fullPath);
     //Bitmap testBitmap = Bitmap(50, 50, true);
     //testBitmap.GenerateNoise();
     //testBitmap.Fill(0xFF0000FF);
+    //Texture testTexture = Texture(testBitmap);
+    //_gameObject.getTexture().Apply(testTexture);
     
-    //_gameObject.showBackground = true;
-    //_gameObject.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
-    _gameObject.width = 64;
-    _gameObject.height = 64;
-    _gameObject.x = 30;
-    _gameObject.y = 30;
     
-    _gameObject.texture = new Texture(testBitmap);
+    // MESH TESTS
+    GLfloat z = 0.0f;
+    
+    //Mesh mesh = _gameObject.getMesh();
+    _gameObject.getMesh().AddVertex(40, 420, z);
+    _gameObject.getMesh().AddVertex(40, 40, z);
+    _gameObject.getMesh().AddVertex(280, 420, z);
+    _gameObject.getMesh().AddVertex(280, 40, z);    
+    
+    
+    /*
+    mesh.AddNormal(0, 0, 1);
+    mesh.AddNormal(0, 0, 1);
+    mesh.AddNormal(0, 0, 1);
+    mesh.AddNormal(0, 0, 1);
+     */
+    
+    
+    _gameObject.showBackground = true;
+    _gameObject.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
+    
+    
 }
 
 void Game::Update()

@@ -71,6 +71,58 @@ void Renderer::DrawRect(Rectangle rect, Color color)
     glPopMatrix();
 }
 
+
+void Renderer::PushMatrix()
+{
+    glPushMatrix();
+}
+
+void Renderer::PopMatrix()
+{
+    glPopMatrix();
+}
+
+void Renderer::Translate(GLfloat x, GLfloat y, GLfloat z)
+{
+    glTranslatef(x, y, z);
+}
+
+void Renderer::setVertexColor(Color color)
+{
+    glColor4f(color.red, color.green, color.blue, color.alpha);
+}
+
+void Renderer::DrawMesh(Mesh &mesh)
+{
+    glEnableClientState(GL_VERTEX_ARRAY);
+    
+    GLfloat *vertices = new GLfloat[mesh.vertices.size() * 3];
+    int bufferIndex = 0;
+    
+    //printf("vertex count: %lu\n", mesh.vertices.size());
+    
+    for(int i = 0; i < mesh.vertices.size(); ++i)
+    {
+        bufferIndex = i * 3;
+        
+        Vector3 *vertex = mesh.vertices[i];
+        
+        vertices[bufferIndex] = vertex->x;
+        vertices[bufferIndex + 1] = vertex->y;
+        vertices[bufferIndex + 2] = vertex->z;
+        
+        printf("Vertex %d: ", i);
+        vertex->Print();
+    }
+    
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    glDisableClientState(GL_VERTEX_ARRAY);
+    
+    delete vertices;
+}
+
 void Renderer::DrawTexture(Rectangle& rect, Texture &texture)
 {	    
     GLfloat vertices[] = {

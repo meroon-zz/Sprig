@@ -13,6 +13,25 @@
 // IMPLEMENTAION ///////////////////////////////////////////
 
 
+Texture::Texture()
+{
+    
+}
+
+void Texture::init()
+{
+    _width = 0;
+    _height = 0;
+    _clamp = true;
+    _pixelSize = 4;
+    _textureData = NULL;
+	
+	scrollSpeedX = 0;
+	scrollSpeedY = 0;
+	offsetX = 0;
+	offsetY = 0;
+}
+
 Texture::~Texture()
 {    
     printf("deleting texture: %d\n", textureID);
@@ -22,42 +41,27 @@ Texture::~Texture()
 
 Texture::Texture(unsigned int width, unsigned int height, GLubyte *textureData, bool clamp)
 {
+    init();
+    
     _width = width;
     _height = height;
     _clamp = clamp;
-    _pixelSize = 4;
-    _textureData = NULL;
-	
-	scrollSpeedX = 0;
-	scrollSpeedY = 0;
-	scrollOffsetX = 0;
-	scrollOffsetY = 0;
     
     SetTextureData(textureData);
 }
 
 Texture::Texture(Bitmap &bitmap)
 {
+    init();
+    
     _width = bitmap.GetWidth();
     _height = bitmap.GetHeight();
-    _clamp = true;
-    _pixelSize = 4;
-    _textureData = NULL;
-    
-    scrollSpeedX = 0;
-	scrollSpeedY = 0;
-	scrollOffsetX = 0;
-	scrollOffsetY = 0;
-    
-    printf("setting bitmap\n");
     
     SetTextureData((GLubyte *)bitmap.GetBitmapData());
 }
 
 void Texture::rebuildFromTextureData()
-{
-    
-    
+{    
     glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
     
@@ -93,6 +97,16 @@ unsigned int Texture::GetHeight()
     return _height;
 }
 
+bool  Texture::GetClamp()
+{
+    return _clamp;
+}
+
+unsigned int Texture::GetPixelSize()
+{
+    return _pixelSize;
+}
+
 void Texture::SetTextureData(GLubyte *textureData)
 {
     deleteTextureData();
@@ -119,6 +133,21 @@ void Texture::deleteTextureData()
     delete [] _textureData;
     
     _textureData = NULL;
+}
+
+
+void Texture::Apply(Texture &texture)
+{
+    _width = texture.GetWidth();
+    _height = texture.GetHeight();
+    _clamp = texture.GetClamp();
+    _pixelSize = texture.GetPixelSize();
+    _textureData = texture.GetTextureData();
+	
+	scrollSpeedX = texture.scrollSpeedX;
+	scrollSpeedY = texture.scrollSpeedY;
+	offsetX = texture.offsetX;
+	offsetY = texture.offsetY;
 }
 
 /*

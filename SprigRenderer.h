@@ -3,9 +3,12 @@
 #include "SprigRectangle.h"
 #include "SprigColor.h"
 #include "SprigTexture.h"
+#include "SprigMesh.h"
 
 class Renderer  {
 
+    
+    
 public:	
 	
 	enum CameraType {
@@ -20,6 +23,15 @@ public:
     
     Color backgroundColor;
 	
+    void PushMatrix();
+    void PopMatrix();
+    
+    void Translate(GLfloat x, GLfloat y, GLfloat z);
+    
+    void setVertexColor(Color color);
+    
+    void DrawMesh(Mesh& mesh);
+    
 private:
     
 	Rectangle _viewRect;

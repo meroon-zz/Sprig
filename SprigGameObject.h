@@ -4,6 +4,7 @@
 
 #include "SprigRenderer.h"
 #include "SprigTexture.h"
+#include "SprigMesh.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class GameObject
     
 public:
     
-    GameObject() : width(100), height(100), showBackground(false){};
+    GameObject();
     virtual ~GameObject();
     
     virtual void Draw(Renderer& renderer);
@@ -20,11 +21,11 @@ public:
     Color backgroundColor;
     bool showBackground;
     
-    unsigned int width;
-    unsigned int height;
+    Texture& getTexture(); 
+    Mesh& getMesh();
     
-    int x;
-    int y;
+private:
     
-    Texture *texture;
+    Texture _texture;
+    Mesh _mesh;
 };

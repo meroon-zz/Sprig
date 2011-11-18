@@ -37,6 +37,8 @@
 		966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D237C142FBBA10043F293 /* AssetManager.cpp */; };
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
 		966D23B0142FF93F0043F293 /* SprigTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D23AE142FF93E0043F293 /* SprigTexture.cpp */; };
+		9679F86C1474EE1E00C0874F /* SprigMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9679F86A1474EE1E00C0874F /* SprigMesh.cpp */; };
+		9679F8701474F02600C0874F /* SprigVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9679F86E1474F02600C0874F /* SprigVector.cpp */; };
 		96AE536D143C275C009BE8EC /* SprigFileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */; };
 		96C9AB54142C4B45000D6634 /* SprigColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB52142C4B45000D6634 /* SprigColor.cpp */; };
 		96C9AB57142C500D000D6634 /* SprigRectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C9AB55142C500C000D6634 /* SprigRectangle.cpp */; };
@@ -93,6 +95,10 @@
 		966D2381142FBD100043F293 /* EnvironmentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentData.h; sourceTree = "<group>"; };
 		966D23AE142FF93E0043F293 /* SprigTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigTexture.cpp; sourceTree = "<group>"; };
 		966D23AF142FF93F0043F293 /* SprigTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigTexture.h; sourceTree = "<group>"; };
+		9679F86A1474EE1E00C0874F /* SprigMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigMesh.cpp; sourceTree = "<group>"; };
+		9679F86B1474EE1E00C0874F /* SprigMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigMesh.h; sourceTree = "<group>"; };
+		9679F86E1474F02600C0874F /* SprigVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigVector.cpp; sourceTree = "<group>"; };
+		9679F86F1474F02600C0874F /* SprigVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigVector.h; sourceTree = "<group>"; };
 		96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigFileSystem.cpp; sourceTree = "<group>"; };
 		96AE536C143C275C009BE8EC /* SprigFileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigFileSystem.h; sourceTree = "<group>"; };
 		96C9AB52142C4B45000D6634 /* SprigColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigColor.cpp; sourceTree = "<group>"; };
@@ -235,6 +241,10 @@
 				962E98E1146DD64A008D0BB0 /* SprigGameObject.cpp */,
 				962EA4E11471E88A008D0BB0 /* SprigImageEncoding.cpp */,
 				962EA4E21471E88C008D0BB0 /* SprigImageEncoding.h */,
+				9679F86A1474EE1E00C0874F /* SprigMesh.cpp */,
+				9679F86B1474EE1E00C0874F /* SprigMesh.h */,
+				9679F86E1474F02600C0874F /* SprigVector.cpp */,
+				9679F86F1474F02600C0874F /* SprigVector.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -387,6 +397,8 @@
 				962E98DF146C9796008D0BB0 /* SprigBitmap.cpp in Sources */,
 				962E98E3146DD64A008D0BB0 /* SprigGameObject.cpp in Sources */,
 				962EA4E31471E88E008D0BB0 /* SprigImageEncoding.cpp in Sources */,
+				9679F86C1474EE1E00C0874F /* SprigMesh.cpp in Sources */,
+				9679F8701474F02600C0874F /* SprigVector.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

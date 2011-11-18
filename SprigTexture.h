@@ -12,7 +12,7 @@ class Texture
 
 public:
     
-    Texture() : _textureData(NULL) , _pixelSize(4){};
+    Texture();
     ~Texture();
     
     Texture(unsigned int width, unsigned int height, GLubyte *textureData, bool clamp);
@@ -23,17 +23,22 @@ public:
     
     float scrollSpeedX;
     float scrollSpeedY;
-    float scrollOffsetX;
-    float scrollOffsetY;
+    float offsetX;
+    float offsetY;
     
     unsigned int GetWidth();
     unsigned int GetHeight();
+    bool GetClamp();
+    unsigned int GetPixelSize();
     
     void SetTextureData(GLubyte *textureData);
     unsigned char * GetTextureData();
     
+    void Apply(Texture &texture);
+    
 private:
 
+    void init();
     void rebuildFromTextureData();
     void deleteTextureData();
     
