@@ -20,23 +20,25 @@ void GameObject::Draw(Renderer &renderer)
 {
     renderer.PushMatrix();
     
+    renderer.LoadIdentity();
+    
     renderer.Translate(0.0f, 0.0f, -30.0f);
     
-    renderer.setVertexColor(backgroundColor);
+    if(showBackground)
+    {
+        renderer.setVertexColor(backgroundColor);
+    }
+    
+    if(_texture.GetTextureData() != NULL)
+    {        
+        renderer.BindTexture(_texture);
+    }
     
     renderer.DrawMesh(_mesh);
     
     renderer.PopMatrix();
     
-    if(showBackground)
-    {
-        //renderer.DrawRect(rect, backgroundColor);
-    }
     
-    if(_texture.GetTextureData() != NULL)
-    {
-        //renderer.DrawTexture(rect, _texture);
-    }
     
     
     

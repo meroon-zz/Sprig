@@ -23,6 +23,8 @@ public:
     
     Color backgroundColor;
 	
+    void LoadIdentity();
+    
     void PushMatrix();
     void PopMatrix();
     
@@ -31,6 +33,8 @@ public:
     void setVertexColor(Color color);
     
     void DrawMesh(Mesh& mesh);
+    
+    void BindTexture(Texture &texture);
     
 private:
     

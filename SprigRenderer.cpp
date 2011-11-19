@@ -71,6 +71,11 @@ void Renderer::DrawRect(Rectangle rect, Color color)
     glPopMatrix();
 }
 
+void Renderer::LoadIdentity()
+{
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
 
 void Renderer::PushMatrix()
 {
@@ -95,32 +100,68 @@ void Renderer::setVertexColor(Color color)
 void Renderer::DrawMesh(Mesh &mesh)
 {
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     
     GLfloat *vertices = new GLfloat[mesh.vertices.size() * 3];
+    GLfloat *normals = new GLfloat[mesh.normals.size() * 3];
+    GLfloat *textureCoor = new GLfloat[mesh.textureCoor.size() * 2];
+    
     int bufferIndex = 0;
     
-    //printf("vertex count: %lu\n", mesh.vertices.size());
     
     for(int i = 0; i < mesh.vertices.size(); ++i)
     {
-        bufferIndex = i * 3;
+        int bufferIndex = i * 3;
         
         Vector3 *vertex = mesh.vertices[i];
         
         vertices[bufferIndex] = vertex->x;
         vertices[bufferIndex + 1] = vertex->y;
         vertices[bufferIndex + 2] = vertex->z;
-        
-        printf("Vertex %d: ", i);
-        vertex->Print();
     }
     
+    
+    for(int i = 0; i < mesh.normals.size(); ++i)
+    {
+        bufferIndex = i * 3;
+        
+        Vector3 *normal = mesh.normals[i];
+        
+        normals[bufferIndex] = normal->x;
+        normals[bufferIndex + 1] = normal->y;
+        normals[bufferIndex + 2] = normal->z;
+    }
+    
+    
+    for(int i = 0; i < mesh.textureCoor.size(); ++i)
+    {
+        bufferIndex = i * 2;
+        
+        Vector2 *uv = mesh.textureCoor[i];
+        
+        textureCoor[bufferIndex] = uv->x;
+        textureCoor[bufferIndex + 1] = uv->y;
+    }
+    
+    
     glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glNormalPointer(GL_FLOAT, 0, normals);
+    glTexCoordPointer(2, GL_FLOAT, 0, textureCoor);
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
     glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     
     delete vertices;
+    delete normals;
+    delete textureCoor;
+}
+
+void Renderer::BindTexture(Texture &texture)
+{
+    glBindTexture(GL_TEXTURE_2D, texture.textureID);
 }
 
 void Renderer::DrawTexture(Rectangle& rect, Texture &texture)

@@ -34,16 +34,16 @@ void Mesh::AddNormal(GLfloat x, GLfloat y, GLfloat z)
     normals.push_back(normal);
 }
 
-void Mesh::AddUV(GLfloat x, GLfloat y)
+void Mesh::AddTextureCoor(GLfloat x, GLfloat y)
 {
-    Vector2 *coor = new Vector2(x, y);
+    Vector2 *uv = new Vector2(x, y);
     
-    uv.push_back(coor);
+    textureCoor.push_back(uv);
 }
 
 void Mesh::Clear()
 {
     vertices.clear();
     normals.clear();
-    uv.clear();
+    textureCoor.clear();
 }
