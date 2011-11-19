@@ -15,7 +15,7 @@
 
 Texture::Texture()
 {
-    
+    init();
 }
 
 void Texture::init()
@@ -34,9 +34,9 @@ void Texture::init()
 
 Texture::~Texture()
 {    
-    printf("deleting texture: %d\n", textureID);
+    //printf("deleting texture: %d\n", textureID);
     
-    glDeleteTextures(1, &textureID);
+    //glDeleteTextures(1, &textureID);
 }
 
 Texture::Texture(unsigned int width, unsigned int height, GLubyte *textureData, bool clamp)

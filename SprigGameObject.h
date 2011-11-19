@@ -24,7 +24,7 @@ public:
     Texture& getTexture(); 
     Mesh& getMesh();
     
-private:
+protected:
     
     Texture _texture;
     Mesh _mesh;

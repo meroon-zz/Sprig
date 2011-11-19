@@ -30,6 +30,7 @@ public:
     unsigned int GetHeight();
     bool GetClamp();
     unsigned int GetPixelSize();
+    bool IsValid();
     
     void SetTextureData(GLubyte *textureData);
     unsigned char * GetTextureData();

@@ -3,6 +3,7 @@
 
 #include "SprigRenderer.h"
 #include "SprigGameObject.h"
+#include "SprigSprite.h"
 
 #include "EnvironmentData.h"
 
@@ -18,5 +19,5 @@ public:
 	    
 private:
 	Renderer _renderer;
-    GameObject _gameObject;
+    Sprite _sprite;
 };
