@@ -20,6 +20,10 @@ bool validate(SprigFile *pngFile) {
     return true;
 }
 
+const char * PNGImage::getID()
+{
+    return "1";
+}
 
 PNGImage::PNGImage()
 {
@@ -163,9 +167,9 @@ bool PNGImage::Read(const char * filepath)
     return true;
 }
 
-void Write(const char * filepath)
+bool PNGImage::Write(const char * filepath)
 {
-    
+    return false;
 }
 
 unsigned char* PNGImage::GetPixelData()

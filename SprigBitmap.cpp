@@ -10,6 +10,7 @@
 #include "SprigBitmap.h"
 #include "MathUtil.h"
 #include "SprigImageEncoding.h"
+#include "SprigResource.h"
 
 Bitmap::Bitmap()
 {
@@ -79,19 +80,14 @@ bool Bitmap::LoadPNG(std::string &filepath)
 {
     _loaded = false;
     
-    PNGImage image;
+    PNGImage *image = (PNGImage *)ResourceManager::getInstance()->getResource(filepath.c_str(), ResourceManager::PNGImageResourceType);
     
-    if(image.Read(filepath.c_str()))
-    {
-        printf("loaded file %s", filepath.c_str());
-        
-        _width = image.GetWidth();
-        _height = image.GetHeight();
-        _pixelSize = image.GetChannels();        
-        _bitmapData = new unsigned char[image.GetPixelCount()];
-        
-        memcpy(_bitmapData, image.GetPixelData(), image.GetPixelCount());
-    
+    if(image)
+    {        
+        _width = image->GetWidth();
+        _height = image->GetHeight();
+        _pixelSize = image->GetChannels();   
+        _bitmapData = image->GetPixelData();    
         _loaded = true;
     }
     

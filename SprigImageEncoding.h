@@ -1,14 +1,18 @@
 #pragma once
 
-class PNGImage
+#include "SprigResource.h"
+
+class PNGImage : public IResource
 {
 
 public:
     PNGImage();
     ~PNGImage();
     
-    bool Read(const char * filepath);
-    bool Write(const char * filepath);
+    bool Read(const char * path);
+    bool Write(const char * path);
+    
+    const char* getID();
     
     unsigned char* GetPixelData();
     

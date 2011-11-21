@@ -109,16 +109,7 @@ unsigned int Texture::GetPixelSize()
 
 void Texture::SetTextureData(GLubyte *textureData)
 {
-    deleteTextureData();
-    
-    int dataSize = _width * _height * _pixelSize;
-    
-	_textureData = new GLubyte[dataSize];
-
-	if(textureData)
-        memcpy(_textureData, textureData, dataSize);
-	else
-		memset(_textureData, 0, dataSize);
+    _textureData = textureData;	
     
     rebuildFromTextureData();
 }
