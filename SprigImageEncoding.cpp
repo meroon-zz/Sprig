@@ -20,15 +20,8 @@ bool validate(SprigFile *pngFile) {
     return true;
 }
 
-const char * PNGImage::getID()
-{
-    return "1";
-}
 
-PNGImage::PNGImage()
-{
-    _data = NULL;
-}
+
 
 PNGImage::~PNGImage()
 {
@@ -38,9 +31,18 @@ PNGImage::~PNGImage()
     }
 }
 
-bool PNGImage::Read(const char * filepath)
+bool PNGImage::Read(const char *path)
 {
-    SprigFile *pngFile = SprigFileSystem::open(filepath, "rb");
+    filepath = (char *)path;
+    
+    isLoaded = load(path);
+    
+    return isLoaded;
+}
+
+bool PNGImage::load(const char *path)
+{
+    SprigFile *pngFile = SprigFileSystem::open(path, "rb");
     
     if(!pngFile)
     {
@@ -167,7 +169,7 @@ bool PNGImage::Read(const char * filepath)
     return true;
 }
 
-bool PNGImage::Write(const char * filepath)
+bool PNGImage::Write(const char *path)
 {
     return false;
 }

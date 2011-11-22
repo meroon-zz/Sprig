@@ -2,17 +2,16 @@
 
 #include "SprigResource.h"
 
-class PNGImage : public IResource
+class PNGImage : public Resource
 {
 
 public:
-    PNGImage();
+    
+    PNGImage() : Resource(), _data(NULL)  {};
     ~PNGImage();
     
     bool Read(const char * path);
-    bool Write(const char * path);
-    
-    const char* getID();
+    bool Write(const char *path);
     
     unsigned char* GetPixelData();
     
@@ -23,6 +22,8 @@ public:
     unsigned int GetPixelCount();
     
 private:
+    
+    bool load(const char *path);
     
     unsigned char *_data;
     

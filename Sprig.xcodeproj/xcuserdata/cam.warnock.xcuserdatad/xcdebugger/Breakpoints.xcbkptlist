@@ -8,13 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "SprigGameObject.cpp"
-         timestampString = "343426104.880995"
+         filePath = "SprigResource.cpp"
+         timestampString = "343638359.096873"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
-         landmarkName = "GameObject::Draw(Renderer &amp;renderer)"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "ResourceManager::getResource(const char *path, ResourceType type)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

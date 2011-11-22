@@ -6,6 +6,9 @@
 #include "Game.h"
 #include "MathUtil.h"
 
+#include "SprigXMLFile.h"
+#include "SprigResource.h"
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -27,7 +30,19 @@ void Game::Init(EnvironmentData envData)
     Bitmap testBitmap = Bitmap(fullPath);    
     _sprite.AddBitmap(testBitmap);
     _sprite.setPosition(20, 20);
-    _sprite.setSize(64, 64);    
+    _sprite.setSize(64, 64);  
+    
+    
+    string xmlpath = Game::environmentData.basePath + "/run_test.xml";
+    
+    XMLFile *xmlFile = (XMLFile *)ResourceManager::getInstance()->getResource(xmlpath.c_str(), ResourceManager::ResourceTypeXML);
+    
+    if(xmlFile != NULL)
+    {
+        xmlFile->document->Print();
+    }
+    
+    
 }
 
 void Game::Update()

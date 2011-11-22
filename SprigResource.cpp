@@ -8,8 +8,14 @@
 
 #include "SprigResource.h"
 #include "SprigImageEncoding.h"
+#include "SprigXMLFile.h"
 
 
+
+unsigned int Resource::getID()
+{
+    return 0;
+}
 
 
 
@@ -25,9 +31,9 @@ ResourceManager* ResourceManager::getInstance()
     return  _instance;
 }
 
-IResource* ResourceManager::getResource(const char *path, ResourceType type)
+Resource* ResourceManager::getResource(const char *path, ResourceType type)
 {
-    IResource *resource = _resources[path];
+    Resource *resource = _resources[path];
     
     if(resource == NULL)
     {
@@ -35,7 +41,7 @@ IResource* ResourceManager::getResource(const char *path, ResourceType type)
         
         if(resource->Read(path))
         {
-            _resources.insert(std::pair<const char *, IResource*>(path, resource));
+            _resources.insert(ResourceMap::value_type(path, resource));
             
             return resource;
         }
@@ -48,17 +54,16 @@ IResource* ResourceManager::getResource(const char *path, ResourceType type)
     return resource;
 }
 
-IResource* ResourceManager::getResourceType(ResourceType type)
+Resource* ResourceManager::getResourceType(ResourceType type)
 {
-    IResource *resource = NULL;
-    
     switch (type) {
-        case PNGImageResourceType:
+        case ResourceTypePNGImage:
             return new PNGImage;
-            
+        case ResourceTypeXML:
+            return new XMLFile;
     }
     
-    return resource;
+    return NULL;
 }
 
 void ResourceManager::removeResource(const char *path)

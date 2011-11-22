@@ -13,37 +13,39 @@
 
 
 
-class IResource
+class Resource
 {
     
 public:
     
-    virtual ~IResource() {};
-    virtual const char * getID() = 0;
+    Resource() : filepath(NULL), isLoaded(false) {};
+    virtual ~Resource() {};
+    virtual unsigned int getID();
     virtual bool Read(const char *path) = 0;
     virtual bool Write(const char *path) = 0;
     
+    char *filepath;
     bool isLoaded;
 };
 
 
-typedef std::map<const char *, IResource*> ResourceMap;
+typedef std::map<const char *, Resource*> ResourceMap;
 
 class ResourceManager
 {
     
 public:
     
-    enum ResourceType { PNGImageResourceType };
+    enum ResourceType { ResourceTypePNGImage, ResourceTypeXML };
     
     static ResourceManager* getInstance();
-    IResource *getResource(const char *path, ResourceType type);
+    Resource *getResource(const char *path, ResourceType type);
     void removeResource(const char *path);
     void removeAll();
     
 private:
     
-    IResource* getResourceType(ResourceType type);
+    Resource* getResourceType(ResourceType type);
     
     ResourceMap _resources;
     static  ResourceManager *_instance;

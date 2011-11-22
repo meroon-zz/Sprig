@@ -80,7 +80,7 @@ bool Bitmap::LoadPNG(std::string &filepath)
 {
     _loaded = false;
     
-    PNGImage *image = (PNGImage *)ResourceManager::getInstance()->getResource(filepath.c_str(), ResourceManager::PNGImageResourceType);
+    PNGImage *image = (PNGImage *)ResourceManager::getInstance()->getResource(filepath.c_str(), ResourceManager::ResourceTypePNGImage);
     
     if(image)
     {        
