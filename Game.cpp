@@ -5,9 +5,8 @@
 
 #include "Game.h"
 #include "MathUtil.h"
+#include "SprigSpriteAtlas.h"
 
-#include "SprigXMLFile.h"
-#include "SprigResource.h"
 
 using std::string;
 using std::cout;
@@ -26,28 +25,37 @@ void Game::Init(EnvironmentData envData)
 	_renderer.Setup(environmentData.screenRect, Renderer::Orthographic);
 
     
-    string fullPath = Game::environmentData.basePath + "/run_test.png";    
-    Bitmap testBitmap = Bitmap(fullPath);    
-    _sprite.AddBitmap(testBitmap);
-    _sprite.setPosition(20, 20);
-    _sprite.setSize(64, 64);  
+    string imagePath = Game::environmentData.basePath + "/run_test.png"; 
+    string xmlPath = Game::environmentData.basePath + "/run_test.xml";
+  
+    
+    Bitmap bitmap = Bitmap(imagePath);
+    _test.AddBitmap(bitmap);
+    
+    _test.setPosition(0, 0);
+    _test.setSize(bitmap.GetWidth(), bitmap.GetHeight());
     
     
-    string xmlpath = Game::environmentData.basePath + "/run_test.xml";
+    _sprite.setPosition(60, 320);
+    _sprite.LoadSheet(xmlPath, imagePath);
+    _sprite.showBackground = false;
+    _sprite.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
     
-    XMLFile *xmlFile = (XMLFile *)ResourceManager::getInstance()->getResource(xmlpath.c_str(), ResourceManager::ResourceTypeXML);
-    
-    if(xmlFile != NULL)
-    {
-        xmlFile->document->Print();
-    }
-    
-    
+    _ground.showBackground = true;
+    _ground.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
+    _ground.setPosition(0, 390);
+    _ground.setSize(320, 10);
+   
 }
 
 void Game::Update()
 {	    
 	_renderer.Clear();
-       
+    
+    _sprite.Update();
     _sprite.Draw(_renderer);
+    
+    //_test.Draw(_renderer);
+    
+    _ground.Draw(_renderer);
 }

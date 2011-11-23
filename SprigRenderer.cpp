@@ -35,9 +35,8 @@ void Renderer::Setup(Rectangle rect, CameraType cameraType)
         glMatrixMode(GL_MODELVIEW);
     }
     
-    glEnable(GL_TEXTURE_2D);
-    glBlendFunc(GL_ONE, GL_SRC_COLOR);
-    //glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //glBlendFunc(GL_ONE, GL_SRC_COLOR);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);	
 }
 
@@ -162,6 +161,16 @@ void Renderer::DrawMesh(Mesh &mesh)
 void Renderer::BindTexture(Texture &texture)
 {
     glBindTexture(GL_TEXTURE_2D, texture.textureID);
+}
+
+void Renderer::EnableTexture()
+{
+    glEnable(GL_TEXTURE_2D);
+}
+
+void Renderer::DisableTexture()
+{
+    glDisable(GL_TEXTURE_2D);
 }
 
 void Renderer::DrawTexture(Rectangle& rect, Texture &texture)

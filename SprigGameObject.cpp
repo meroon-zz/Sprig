@@ -16,6 +16,11 @@ GameObject::~GameObject()
     
 }
 
+void GameObject::Update()
+{
+    
+}
+
 void GameObject::Draw(Renderer &renderer)
 {
     renderer.PushMatrix();
@@ -28,10 +33,21 @@ void GameObject::Draw(Renderer &renderer)
     {
         renderer.setVertexColor(backgroundColor);
     }
+    else
+    {
+        //Color clearedColor = Color(1,1,1,0);
+        
+        //renderer.setVertexColor(clearedColor);
+    }
     
     if(_texture.GetTextureData() != NULL)
-    {        
+    {   
+        renderer.EnableTexture();
         renderer.BindTexture(_texture);
+    }
+    else
+    {
+        renderer.DisableTexture();
     }
     
     renderer.DrawMesh(_mesh);

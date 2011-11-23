@@ -19,5 +19,7 @@ public:
 	    
 private:
 	Renderer _renderer;
-    Sprite _sprite;
+    AnimatedSprite _sprite;
+    Sprite _ground;
+    Sprite _test;
 };

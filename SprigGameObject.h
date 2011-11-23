@@ -17,6 +17,7 @@ public:
     virtual ~GameObject();
     
     virtual void Draw(Renderer& renderer);
+    virtual void Update();
     
     Color backgroundColor;
     bool showBackground;

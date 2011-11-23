@@ -37,6 +37,7 @@
 		9660339F147853B1005064FD /* SprigSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9660339D147853B1005064FD /* SprigSprite.cpp */; };
 		966033A31479C6EA005064FD /* SprigResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966033A11479C6E9005064FD /* SprigResource.cpp */; };
 		966033AC147B4C10005064FD /* SprigXMLFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966033AA147B4C0F005064FD /* SprigXMLFile.cpp */; };
+		966033AF147C4E01005064FD /* SprigSpriteAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966033AD147C4DFE005064FD /* SprigSpriteAtlas.cpp */; };
 		966D237E142FBBA20043F293 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D237C142FBBA10043F293 /* AssetManager.cpp */; };
 		966D2382142FBD110043F293 /* EnvironmentData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D2380142FBD0F0043F293 /* EnvironmentData.cpp */; };
 		966D23B0142FF93F0043F293 /* SprigTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966D23AE142FF93E0043F293 /* SprigTexture.cpp */; };
@@ -98,6 +99,8 @@
 		966033A21479C6EA005064FD /* SprigResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigResource.h; sourceTree = "<group>"; };
 		966033AA147B4C0F005064FD /* SprigXMLFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigXMLFile.cpp; sourceTree = "<group>"; };
 		966033AB147B4C10005064FD /* SprigXMLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigXMLFile.h; sourceTree = "<group>"; };
+		966033AD147C4DFE005064FD /* SprigSpriteAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigSpriteAtlas.cpp; sourceTree = "<group>"; };
+		966033AE147C4DFF005064FD /* SprigSpriteAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigSpriteAtlas.h; sourceTree = "<group>"; };
 		966D237C142FBBA10043F293 /* AssetManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AssetManager.cpp; sourceTree = "<group>"; };
 		966D237D142FBBA10043F293 /* AssetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetManager.h; sourceTree = "<group>"; };
 		966D2380142FBD0F0043F293 /* EnvironmentData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnvironmentData.cpp; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 				966033A21479C6EA005064FD /* SprigResource.h */,
 				966033AA147B4C0F005064FD /* SprigXMLFile.cpp */,
 				966033AB147B4C10005064FD /* SprigXMLFile.h */,
+				966033AD147C4DFE005064FD /* SprigSpriteAtlas.cpp */,
+				966033AE147C4DFF005064FD /* SprigSpriteAtlas.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				9660339F147853B1005064FD /* SprigSprite.cpp in Sources */,
 				966033A31479C6EA005064FD /* SprigResource.cpp in Sources */,
 				966033AC147B4C10005064FD /* SprigXMLFile.cpp in Sources */,
+				966033AF147C4E01005064FD /* SprigSpriteAtlas.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

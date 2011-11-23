@@ -23,6 +23,9 @@ public:
     
     Color backgroundColor;
 	
+    void EnableTexture();
+    void DisableTexture();
+    
     void LoadIdentity();
     
     void PushMatrix();

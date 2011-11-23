@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdio.h>
+
 class Rectangle
 {    
   public:
@@ -9,4 +11,6 @@ class Rectangle
     Rectangle(float x, float y, float width, float height);
     
     float x, y, width, height;
+    
+    inline void Print() { printf("[Rectangle] x: %f  y: %f  width: %f  height: %f\n", x, y, width, height); };
 };

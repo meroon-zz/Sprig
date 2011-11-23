@@ -148,7 +148,7 @@ bool PNGImage::load(const char *path)
         //Notice that the row order is reversed with q.
         //This is how at least OpenGL expects it,
         //and how many other image loaders present the data.
-        png_uint_32 q = (_imgHeight- i - 1) * stride;
+        png_uint_32 q = (i - 1) * stride;
         rowPtrs[i] = (png_bytep)_data + q;
         //rowPtrs[i] = (png_bytep)_data + (stride * i);
     }
