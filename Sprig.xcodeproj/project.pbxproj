@@ -33,6 +33,7 @@
 		9633ED8A14425083008BE18B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2214425083008BE18B /* tinyxml.cpp */; };
 		9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2614425083008BE18B /* tinyxmlerror.cpp */; };
 		9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9633ED2714425083008BE18B /* tinyxmlparser.cpp */; };
+		96392DA2147E1E83003C20E5 /* SprigInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96392DA0147E1E83003C20E5 /* SprigInput.cpp */; };
 		965306701432D0290088370F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9653066F1432D0290088370F /* libz.1.1.3.dylib */; };
 		9660339F147853B1005064FD /* SprigSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9660339D147853B1005064FD /* SprigSprite.cpp */; };
 		966033A31479C6EA005064FD /* SprigResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966033A11479C6E9005064FD /* SprigResource.cpp */; };
@@ -92,6 +93,8 @@
 		9633ED2314425083008BE18B /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		9633ED2614425083008BE18B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		9633ED2714425083008BE18B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		96392DA0147E1E83003C20E5 /* SprigInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigInput.cpp; sourceTree = "<group>"; };
+		96392DA1147E1E83003C20E5 /* SprigInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigInput.h; sourceTree = "<group>"; };
 		9653066F1432D0290088370F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		9660339D147853B1005064FD /* SprigSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigSprite.cpp; sourceTree = "<group>"; };
 		9660339E147853B1005064FD /* SprigSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigSprite.h; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				966033AB147B4C10005064FD /* SprigXMLFile.h */,
 				966033AD147C4DFE005064FD /* SprigSpriteAtlas.cpp */,
 				966033AE147C4DFF005064FD /* SprigSpriteAtlas.h */,
+				96392DA0147E1E83003C20E5 /* SprigInput.cpp */,
+				96392DA1147E1E83003C20E5 /* SprigInput.h */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				966033A31479C6EA005064FD /* SprigResource.cpp in Sources */,
 				966033AC147B4C10005064FD /* SprigXMLFile.cpp in Sources */,
 				966033AF147C4E01005064FD /* SprigSpriteAtlas.cpp in Sources */,
+				96392DA2147E1E83003C20E5 /* SprigInput.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

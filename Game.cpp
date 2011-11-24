@@ -6,7 +6,7 @@
 #include "Game.h"
 #include "MathUtil.h"
 #include "SprigSpriteAtlas.h"
-
+#include "Constants.h"
 
 using std::string;
 using std::cout;
@@ -27,16 +27,9 @@ void Game::Init(EnvironmentData envData)
     
     string imagePath = Game::environmentData.basePath + "/run_test.png"; 
     string xmlPath = Game::environmentData.basePath + "/run_test.xml";
-  
-    
-    Bitmap bitmap = Bitmap(imagePath);
-    _test.AddBitmap(bitmap);
-    
-    _test.setPosition(0, 0);
-    _test.setSize(bitmap.GetWidth(), bitmap.GetHeight());
     
     
-    _sprite.setPosition(60, 320);
+    _sprite.setPosition(60, 300);
     _sprite.LoadSheet(xmlPath, imagePath);
     _sprite.showBackground = false;
     _sprite.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
@@ -50,12 +43,49 @@ void Game::Init(EnvironmentData envData)
 
 void Game::Update()
 {	    
-	_renderer.Clear();
     
-    _sprite.Update();
-    _sprite.Draw(_renderer);
     
-    //_test.Draw(_renderer);
+	
+    
+    trace("the y: %f   velocity: %f\n", _sprite._y, _velocity);
+    
+    
+    //gameplay
+    
+    if (_isJumping)
+    {
+        _sprite.setPosition(_sprite._x, _sprite._y + _velocity);
+        _velocity += _gravity;
+        
+        if(_sprite._y > 345)
+        {
+            _sprite.setPosition(_sprite._x, 345);
+            _isJumping = false;
+        }
+    }
+    else
+    {
+        _sprite.Update();
+    }
+    
+    if(input.GetPressed() && !_isJumping)
+    {
+        trace("mouse was pressed: %f, %f", input.GetLastX(), input.GetLastY());
+        
+        _sprite.GotoFrame(1);
+        _isJumping = true;
+        _velocity = -14;
+    }
+    
+    input.Reset();
+    
+    
+    //draw
+    
+    _renderer.Clear();
     
     _ground.Draw(_renderer);
+    _sprite.Draw(_renderer);
+    
+    
 }

@@ -108,45 +108,58 @@ void AnimatedSprite::LoadSheet(string &xmlPath, string &imagePath)
     }
 }
 
+void AnimatedSprite::GotoFrame(int frame)
+{
+    _atlas.setRectIndex(frame - 1);
+    
+    calculateTexCoor(*_atlas.CurrentRect());
+}
+
+unsigned int AnimatedSprite::CurrentFrame()
+{
+    return 1;
+}
+
 void AnimatedSprite::Update()
 {
     Rectangle *clipRect = _atlas.NextRect();
-    clipRect->y += 0;
+ 
+    calculateTexCoor(*clipRect);
+}
+
+void AnimatedSprite::calculateTexCoor(Rectangle &clipRect)
+{
+    _mesh.textureCoor[0]->x = clipRect.x / (float)_texture.GetWidth();
+    _mesh.textureCoor[0]->y = clipRect.y / (float)_texture.GetHeight();
     
-    _mesh.textureCoor[0]->x = clipRect->x / (float)_texture.GetWidth();
-    _mesh.textureCoor[0]->y = clipRect->y / (float)_texture.GetHeight();
+    _mesh.textureCoor[1]->x = clipRect.x / (float)_texture.GetWidth();
+    _mesh.textureCoor[1]->y = (clipRect.y + clipRect.height) / (float)_texture.GetHeight();
     
-    _mesh.textureCoor[1]->x = clipRect->x / (float)_texture.GetWidth();
-    _mesh.textureCoor[1]->y = (clipRect->y + clipRect->height) / (float)_texture.GetHeight();
+    _mesh.textureCoor[2]->x = (clipRect.x + clipRect.width) / (float)_texture.GetWidth();
+    _mesh.textureCoor[2]->y = clipRect.y / (float)_texture.GetHeight();
     
-    _mesh.textureCoor[2]->x = (clipRect->x + clipRect->width) / (float)_texture.GetWidth();
-    _mesh.textureCoor[2]->y = clipRect->y / (float)_texture.GetHeight();
-    
-    _mesh.textureCoor[3]->x = (clipRect->x + clipRect->width) / (float)_texture.GetWidth();
-    _mesh.textureCoor[3]->y = (clipRect->y + clipRect->height) / (float)_texture.GetHeight();
+    _mesh.textureCoor[3]->x = (clipRect.x + clipRect.width) / (float)_texture.GetWidth();
+    _mesh.textureCoor[3]->y = (clipRect.y + clipRect.height) / (float)_texture.GetHeight();
     
     
-    float diffX = _width - clipRect->width;
-    float diffY = _height - clipRect->height;
+    float diffX = _width - clipRect.width;
+    //float diffY = _height - clipRect.height;
     
     setPosition(_x + diffX / 2, _y);
-    setSize(clipRect->width, clipRect->height);
+    setSize(clipRect.width, clipRect.height);
     
     
-    printf("-- UPDATE -----\n\n");
-    
-    printf("[%d, %d]\n", _texture.GetWidth(), _texture.GetHeight());
-    
-    clipRect->Print();
-    
-    for(int i = 0; i < 4; i++)
-    {
-        printf("coor %d [%f, %f]", i, _mesh.textureCoor[i]->x, _mesh.textureCoor[i]->y);
-    }
-    
-    
-    printf("\n\n");
-     
-
- 
+    //    printf("-- UPDATE -----\n\n");
+    //    
+    //    printf("[%d, %d]\n", _texture.GetWidth(), _texture.GetHeight());
+    //    
+    //    clipRect.Print();
+    //    
+    //    for(int i = 0; i < 4; i++)
+    //    {
+    //        printf("coor %d [%f, %f]", i, _mesh.textureCoor[i]->x, _mesh.textureCoor[i]->y);
+    //    }
+    //    
+    //    
+    //    printf("\n\n");
 }

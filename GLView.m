@@ -44,6 +44,7 @@
         
         self.frameRate = kActiveFrameRate;
     }
+    
     return self;
 }
 - (void)drawView 

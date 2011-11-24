@@ -71,6 +71,11 @@ void SpriteAtlas::Reset()
     _clipRectPtr = _clipRects.begin();
 }
 
+Rectangle* SpriteAtlas::CurrentRect()
+{
+    return *_clipRectPtr;
+}
+
 Rectangle* SpriteAtlas::NextRect()
 {
     if(_clipRects.size() == 0)
@@ -78,8 +83,13 @@ Rectangle* SpriteAtlas::NextRect()
     
     if(++_clipRectPtr == _clipRects.end())
     {
-        _clipRectPtr = _clipRects.begin();
+        Reset();
     }
     
     return *_clipRectPtr;
+}
+
+void SpriteAtlas::setRectIndex(int index)
+{
+    _clipRectPtr = _clipRects.begin() + index;
 }

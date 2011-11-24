@@ -26,9 +26,20 @@ Game _game;
     
     EnvironmentData data;
     data.basePath = std::string([[[NSBundle mainBundle] bundlePath] UTF8String]); 
-    data.screenRect = Rectangle(theView.bounds.size.width, theView.bounds.size.height);
+    data.screenRect = Rectangle(_glView.bounds.size.width, _glView.bounds.size.height);
+    
+    UITapGestureRecognizer *singleTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)] autorelease];
+    singleTap.numberOfTapsRequired = 1;
+    [theView addGestureRecognizer:singleTap];
     
 	_game.Init(data);
+}
+
+- (void)handleSingleTap:(UIGestureRecognizer *)sender
+{
+    CGPoint translate = [sender locationInView:_glView];
+    
+    _game.input.singleTap(translate.x, translate.y);
 }
 
 - (void)drawView:(GLView *)theView

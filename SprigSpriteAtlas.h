@@ -17,11 +17,14 @@ public:
     
     bool LoadSheet(const char *path);
     void Reset();
+    Rectangle* CurrentRect();
     Rectangle* NextRect();
-    
+    void setRectIndex(int index);
     
     Texture texture;
 
+    
+    
 private:
     
  
