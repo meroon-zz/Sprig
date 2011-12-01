@@ -5,8 +5,8 @@
 #include "SprigGameObject.h"
 #include "SprigSprite.h"
 #include "SprigInput.h"
+#include "SprigScreen.h"
 
-#include "EnvironmentData.h"
 
 class Game
 {
@@ -15,10 +15,10 @@ public:
     
     Game() : _accel(0), _velocity(0), _gravity(0.98), _isJumping(true) {};
     
-    static EnvironmentData environmentData;
     
-	void Init(EnvironmentData data);
+	void Init();
 	void Update();
+
     
     Input input;
     

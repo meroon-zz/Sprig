@@ -3,10 +3,9 @@
 #import "GLView.h"
 
 
-
 @interface SpriEngAppDelegate : NSObject <UIApplicationDelegate, GLViewDelegate> {
     UIWindow *_window;
-	GLView *_glView;
+	GLView *_glView;    
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

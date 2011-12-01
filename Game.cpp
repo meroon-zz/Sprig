@@ -7,26 +7,25 @@
 #include "MathUtil.h"
 #include "SprigSpriteAtlas.h"
 #include "Constants.h"
+#include "SprigApplication.h"
 
 using std::string;
 using std::cout;
 using std::endl;
 
-EnvironmentData Game::environmentData;
 
 
-void Game::Init(EnvironmentData envData)
+void Game::Init()
 {		
     srand ( time(NULL) );
     
-    environmentData = envData;
     
     _renderer.backgroundColor = Color(1.0, 1.0, 1.0, 1.0);
-	_renderer.Setup(environmentData.screenRect, Renderer::Orthographic);
+	_renderer.Setup(Screen::getInstance()->dimensions, Renderer::Orthographic);
 
     
-    string imagePath = Game::environmentData.basePath + "/run_test.png"; 
-    string xmlPath = Game::environmentData.basePath + "/run_test.xml";
+    string imagePath = Application::getInstance()->getBasePath() + "/run_test.png"; 
+    string xmlPath = Application::getInstance()->getBasePath() + "/run_test.xml";
     
     
     _sprite.setPosition(60, 300);
@@ -47,7 +46,7 @@ void Game::Update()
     
 	
     
-    trace("the y: %f   velocity: %f\n", _sprite._y, _velocity);
+    //trace("the y: %f   velocity: %f\n", _sprite._y, _velocity);
     
     
     //gameplay
@@ -89,3 +88,5 @@ void Game::Update()
     
     
 }
+
+

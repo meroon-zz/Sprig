@@ -3,7 +3,8 @@
 
 
 #include "Game.h"
-#include "EnvironmentData.h"
+#include "SprigScreen.h"
+#include "SprigApplication.h"
 
 #include <string>
 
@@ -17,23 +18,76 @@ using std::string;
 Game _game;
 
 
+-(Orientation) getOrientation
+{      
+    switch ([[UIDevice currentDevice] orientation]) 
+    {
+        case UIDeviceOrientationLandscapeLeft:
+            return OrientationLandscapeLeft;
+        case UIDeviceOrientationLandscapeRight:
+            return OrientationLandScapeRight;
+        case UIDeviceOrientationPortrait:
+            return OrientationPortraitNormal;
+        case UIDeviceOrientationPortraitUpsideDown:
+            return OrientationPortraitUpsideDown;
+        case UIDeviceOrientationFaceUp:
+            return OrientationFaceUp;
+        case UIDeviceOrientationFaceDown:
+            return OrientationFaceDown;
+        case UIDeviceOrientationUnknown:
+        default:
+            return OrientationUnknown;
+    }
+}
+
+-(void) checkOrientation
+{
+    Orientation orientation = [self getOrientation];
+    
+    if(orientation == OrientationLandscapeLeft)
+    {
+        _glView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 90);
+    }
+    else if([self getOrientation] == OrientationLandScapeRight)
+    {
+        _glView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -90);
+    }
+    else if([self getOrientation] == OrientationPortraitNormal)
+    {
+        _glView.transform = CGAffineTransformMakeRotation(0);
+    }
+    else if([self getOrientation] == OrientationPortraitUpsideDown)
+    {
+        _glView.transform = CGAffineTransformMakeRotation(M_PI);
+    }
+    
+}
+
 #pragma mark GLView Delegate
 
+
 - (void)setupView:(GLView *)theView
-{	
-    //[OpenGLTexture3D loadTextureWithFilename:@"spritesheet.png"];
-    //[[OpenGLTexture3D alloc] initWithFilename:@"sprite.png" width:64 height:64];
+{	    
     
-    EnvironmentData data;
-    data.basePath = std::string([[[NSBundle mainBundle] bundlePath] UTF8String]); 
-    data.screenRect = Rectangle(_glView.bounds.size.width, _glView.bounds.size.height);
+//    EnvironmentData data;
+//    data.basePath = std::string([[[NSBundle mainBundle] bundlePath] UTF8String]); 
+//    data.screenRect = Rectangle(_glView.bounds.size.width, _glView.bounds.size.height);
+//    
+//    UITapGestureRecognizer *singleTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)] autorelease];
+//    singleTap.numberOfTapsRequired = 1;
+//    [theView addGestureRecognizer:singleTap];
+//    
+//    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkOrientation) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+//    
+//    Screen::getInstance()->orientation = [self getOrientation];
+//    [self checkOrientation];
+//    
+//	  _game.Init(data);
     
-    UITapGestureRecognizer *singleTap = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)] autorelease];
-    singleTap.numberOfTapsRequired = 1;
-    [theView addGestureRecognizer:singleTap];
-    
-	_game.Init(data);
+    Application::getInstance()->start();    
 }
+
 
 - (void)handleSingleTap:(UIGestureRecognizer *)sender
 {
@@ -44,7 +98,7 @@ Game _game;
 
 - (void)drawView:(GLView *)theView
 {
-	_game.Update();
+	//_game.Update();
 }
 
 
