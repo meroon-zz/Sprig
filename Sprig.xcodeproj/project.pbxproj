@@ -22,7 +22,7 @@
 		326912B4142AF03A00305931 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912B3142AF03A00305931 /* Game.cpp */; };
 		326912F8142AF6E800305931 /* SprigRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 326912F7142AF6E800305931 /* SprigRenderer.cpp */; };
 		962E98DF146C9796008D0BB0 /* SprigBitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E98DD146C9796008D0BB0 /* SprigBitmap.cpp */; };
-		962E98E3146DD64A008D0BB0 /* SprigGameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E98E1146DD64A008D0BB0 /* SprigGameObject.cpp */; };
+		962E98E3146DD64A008D0BB0 /* SprigEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E98E1146DD64A008D0BB0 /* SprigEntity.cpp */; };
 		962E98EF1471A40C008D0BB0 /* sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E98EE1471A40C008D0BB0 /* sprite.png */; };
 		962E98F11471B1AC008D0BB0 /* noise.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E98F01471B1AC008D0BB0 /* noise.png */; };
 		962E98F31471B40F008D0BB0 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 962E98F21471B40F008D0BB0 /* test.png */; };
@@ -79,8 +79,8 @@
 		8D1107310486CEB800E47090 /* Sprig-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sprig-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		962E98DD146C9796008D0BB0 /* SprigBitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigBitmap.cpp; sourceTree = "<group>"; };
 		962E98DE146C9796008D0BB0 /* SprigBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigBitmap.h; sourceTree = "<group>"; };
-		962E98E1146DD64A008D0BB0 /* SprigGameObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigGameObject.cpp; sourceTree = "<group>"; };
-		962E98E2146DD64A008D0BB0 /* SprigGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigGameObject.h; sourceTree = "<group>"; };
+		962E98E1146DD64A008D0BB0 /* SprigEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigEntity.cpp; sourceTree = "<group>"; };
+		962E98E2146DD64A008D0BB0 /* SprigEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SprigEntity.h; sourceTree = "<group>"; };
 		962E98EE1471A40C008D0BB0 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
 		962E98F01471B1AC008D0BB0 /* noise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noise.png; sourceTree = "<group>"; };
 		962E98F21471B40F008D0BB0 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 				96AE536B143C275B009BE8EC /* SprigFileSystem.cpp */,
 				962E98DE146C9796008D0BB0 /* SprigBitmap.h */,
 				962E98DD146C9796008D0BB0 /* SprigBitmap.cpp */,
-				962E98E2146DD64A008D0BB0 /* SprigGameObject.h */,
-				962E98E1146DD64A008D0BB0 /* SprigGameObject.cpp */,
+				962E98E2146DD64A008D0BB0 /* SprigEntity.h */,
+				962E98E1146DD64A008D0BB0 /* SprigEntity.cpp */,
 				962EA4E11471E88A008D0BB0 /* SprigImageEncoding.cpp */,
 				962EA4E21471E88C008D0BB0 /* SprigImageEncoding.h */,
 				9679F86A1474EE1E00C0874F /* SprigMesh.cpp */,
@@ -423,7 +423,7 @@
 				9633ED8D14425083008BE18B /* tinyxmlerror.cpp in Sources */,
 				9633ED8E14425083008BE18B /* tinyxmlparser.cpp in Sources */,
 				962E98DF146C9796008D0BB0 /* SprigBitmap.cpp in Sources */,
-				962E98E3146DD64A008D0BB0 /* SprigGameObject.cpp in Sources */,
+				962E98E3146DD64A008D0BB0 /* SprigEntity.cpp in Sources */,
 				962EA4E31471E88E008D0BB0 /* SprigImageEncoding.cpp in Sources */,
 				9679F86C1474EE1E00C0874F /* SprigMesh.cpp in Sources */,
 				9679F8701474F02600C0874F /* SprigVector.cpp in Sources */,

@@ -2,7 +2,7 @@
 
 
 #include "SprigRenderer.h"
-#include "SprigGameObject.h"
+#include "SprigEntity.h"
 #include "SprigSprite.h"
 #include "SprigInput.h"
 #include "SprigScreen.h"

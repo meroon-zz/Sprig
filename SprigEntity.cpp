@@ -1,27 +1,27 @@
 
-#include "SprigGameObject.h"
+#include "SprigEntity.h"
 #include "SprigRectangle.h"
 #include "SprigVector.h"
 
 #include <vector>
 
 
-GameObject::GameObject()
+Entity::Entity()
 {
     
 }
 
-GameObject::~GameObject()
+Entity::~Entity()
 {
     
 }
 
-void GameObject::Update()
+void Entity::Update()
 {
     
 }
 
-void GameObject::Draw(Renderer &renderer)
+void Entity::Draw(Renderer &renderer)
 {
     renderer.PushMatrix();
     
@@ -61,12 +61,12 @@ void GameObject::Draw(Renderer &renderer)
 }
 
 
-Texture& GameObject::getTexture()
+Texture& Entity::getTexture()
 {
     return _texture;
 }
 
-Mesh& GameObject::getMesh()
+Mesh& Entity::getMesh()
 {
     return _mesh;
 }

@@ -1,12 +1,12 @@
 #include <string>
 
-#include "SprigGameObject.h"
+#include "SprigEntity.h"
 #include "SprigBitmap.h"
 #include "SprigSpriteAtlas.h"
 
 using std::string;
 
-class Sprite : public GameObject
+class Sprite : public Entity
 {
     
 public:

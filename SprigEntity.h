@@ -8,13 +8,13 @@
 
 using namespace std;
 
-class GameObject	
+class Entity	
 {
     
 public:
     
-    GameObject();
-    virtual ~GameObject();
+    Entity();
+    virtual ~Entity();
     
     virtual void Draw(Renderer& renderer);
     virtual void Update();
