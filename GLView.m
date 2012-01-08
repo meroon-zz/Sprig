@@ -47,6 +47,9 @@
     
     return self;
 }
+
+
+
 - (void)drawView 
 {
     glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
@@ -56,6 +59,8 @@
 }
 - (void)layoutSubviews 
 {		
+    NSLog(@"Laying out the subviews");
+    
     [EAGLContext setCurrentContext:context];
     [self destroyFramebuffer];
     [self createFramebuffer];
@@ -74,6 +79,9 @@
     
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
+    
+    
+    NSLog(@"Creating framebuffer: backingWidth = %d  backingHeight = %d" , backingWidth, backingHeight);
     
     if (kUseDepthBuffer) 
     {

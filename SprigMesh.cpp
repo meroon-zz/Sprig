@@ -22,7 +22,7 @@ void Mesh::AddVertex(GLfloat x, GLfloat y, GLfloat z)
 {
     Vector3 *vertex = new Vector3(x, y, z);
     
-    vertex->Print();
+    //vertex->Print();
     
     vertices.push_back(vertex);
 }

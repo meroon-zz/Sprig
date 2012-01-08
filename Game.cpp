@@ -19,25 +19,32 @@ void Game::Init()
 {		
     srand ( time(NULL) );
     
+    cout << "init the game" << endl;
     
-    _renderer.backgroundColor = Color(1.0, 1.0, 1.0, 1.0);
-	_renderer.Setup(Screen::getInstance()->dimensions, Renderer::Orthographic);
+    _renderer.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
+	_renderer.Setup(Application::getInstance()->screen.dimensions, Renderer::Orthographic);
 
-    
+    /*
     string imagePath = Application::getInstance()->getBasePath() + "/run_test.png"; 
     string xmlPath = Application::getInstance()->getBasePath() + "/run_test.xml";
     
     
-    _sprite.setPosition(60, 300);
+    Screen screen = Application::getInstance()->screen;
+    
+    _sprite.setPosition(-50, 300);
     _sprite.LoadSheet(xmlPath, imagePath);
-    _sprite.showBackground = false;
-    _sprite.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
     
     _ground.showBackground = true;
     _ground.backgroundColor = Color(1.0, 0.0, 0.0, 1.0);
     _ground.setPosition(0, 390);
-    _ground.setSize(320, 10);
+    _ground.setSize(screen.getWidth() - 10, 10);
+     */
    
+}
+
+void Game::Redraw()
+{
+    cout << "redraw" << endl;
 }
 
 void Game::Update()
@@ -50,6 +57,8 @@ void Game::Update()
     
     
     //gameplay
+    
+    /*
     
     if (_isJumping)
     {
@@ -77,14 +86,14 @@ void Game::Update()
     }
     
     input.Reset();
-    
+    */
     
     //draw
     
     _renderer.Clear();
     
-    _ground.Draw(_renderer);
-    _sprite.Draw(_renderer);
+    //_ground.Draw(_renderer);
+    //_sprite.Draw(_renderer);
     
     
 }

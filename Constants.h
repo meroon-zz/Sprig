@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdarg.h>
+
 #define kActiveFrameRate 30.0
 #define kInactiveFrameRate 2.0
 
@@ -9,10 +12,15 @@
 #define kZFar			100.0
 #define kFieldOfView	45.0
 
-#include <stdio.h>
-#include <stdarg.h>
+#define DEBUG_MODE
 
-inline void trace(const char *format, ...) {
+#ifdef DEBUG_MODE
+    #define trace(str, ...) __trace__("[%s:%d] %s", __FILE__, __LINE__, str) 
+#else
+    #define trace(str, ...)
+#endif
+
+inline void __trace__(const char *format, ...) {
     
     va_list args;
     

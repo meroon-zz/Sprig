@@ -6,9 +6,12 @@
 #include "SprigScreen.h"
 #include "SprigApplication.h"
 
+#include <iostream>
 #include <string>
 
 using std::string;
+using std::cout;
+using std::endl;
 
 @implementation SpriEngAppDelegate
 
@@ -17,9 +20,10 @@ using std::string;
 
 Game _game;
 
-
 -(Orientation) getOrientation
 {      
+    //NSLog(@"the orientation: %@", [[UIDevice currentDevice] orientation]);
+    
     switch ([[UIDevice currentDevice] orientation]) 
     {
         case UIDeviceOrientationLandscapeLeft:
@@ -36,31 +40,44 @@ Game _game;
             return OrientationFaceDown;
         case UIDeviceOrientationUnknown:
         default:
-            return OrientationUnknown;
+            return OrientationLandScapeRight;
     }
 }
 
 -(void) checkOrientation
 {
-    Orientation orientation = [self getOrientation];
+    Orientation currentOrientation = Application::getInstance()->screen.orientation;
+    Orientation newOrientation = [self getOrientation];
     
-    if(orientation == OrientationLandscapeLeft)
-    {
-        _glView.transform = CGAffineTransformMakeRotation(M_PI / 180 * 90);
-    }
-    else if([self getOrientation] == OrientationLandScapeRight)
-    {
-        _glView.transform = CGAffineTransformMakeRotation(M_PI / 180 * -90);
-    }
-    else if([self getOrientation] == OrientationPortraitNormal)
-    {
-        _glView.transform = CGAffineTransformMakeRotation(0);
-    }
-    else if([self getOrientation] == OrientationPortraitUpsideDown)
-    {
-        _glView.transform = CGAffineTransformMakeRotation(M_PI);
-    }
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
+    if(currentOrientation != newOrientation)
+    {        
+        if(newOrientation == OrientationLandscapeLeft)
+        {
+            _glView.transform = CGAffineTransformMakeRotation(M_PI / 2);
+        }
+        else if(newOrientation == OrientationLandScapeRight)
+        {
+            _glView.transform = CGAffineTransformMakeRotation(-M_PI / 2);
+        }
+        else if(newOrientation == OrientationPortraitNormal)
+        {
+            _glView.transform = CGAffineTransformMakeRotation(0);
+        }
+        else if(newOrientation == OrientationPortraitUpsideDown)
+        {
+            _glView.transform = CGAffineTransformMakeRotation(M_PI);
+        }
+        
+        _glView.frame = CGRectMake(0, 0, screenBounds.size.width, screenBounds.size.height);
+        
+        NSLog(@"Changed orientation: %@", NSStringFromCGRect(_glView.frame));
+        
+        Application::getInstance()->screen.orientation = newOrientation;
+        
+        [_glView setNeedsLayout];
+    }    
 }
 
 #pragma mark GLView Delegate
@@ -77,15 +94,14 @@ Game _game;
 //    singleTap.numberOfTapsRequired = 1;
 //    [theView addGestureRecognizer:singleTap];
 //    
-//    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkOrientation) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
-//    
-//    Screen::getInstance()->orientation = [self getOrientation];
-//    [self checkOrientation];
-//    
-//	  _game.Init(data);
+
+    //_glView.backgroundColor = [UIColor redColor];
     
-    Application::getInstance()->start();    
+    NSLog(@"setting up view");
+    
+    
+    
+    
 }
 
 
@@ -107,9 +123,14 @@ Game _game;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
+    Application::getInstance()->start();  
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkOrientation) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
+    [self checkOrientation];
+    
 	[_glView start];
 	
-    // Override point for customization after application launch.
 	
     [self.window makeKeyAndVisible];
     

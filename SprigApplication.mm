@@ -1,7 +1,13 @@
+#include <iostream>
+
 #include "SprigApplication.h"
 #include "SprigApplicationUpdate.h"
 #include "SprigScreen.h"
 #include "Game.h"
+
+using std::cout;
+using std::endl;
+
 
 Application *Application::_instance = NULL;
 
@@ -21,7 +27,8 @@ void Application::start()
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
-    Screen::getInstance()->dimensions = Rectangle(screenBounds.size.width, screenBounds.size.height);
+    //deafulting to a left orientation so we need to switch the width and height
+    screen.dimensions = Rectangle(screenBounds.size.height, screenBounds.size.width);
     
     _game.Init();
     

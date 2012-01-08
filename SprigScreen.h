@@ -22,14 +22,10 @@ public:
 
     Screen() : orientation(OrientationLandscapeLeft) {};
     
-    static Screen* getInstance();
-    
     Orientation orientation;
     
     Rectangle dimensions;
-
-
-private:
-
-    static Screen *_instance;
+    
+    float getWidth();
+    float getHeight();
 };

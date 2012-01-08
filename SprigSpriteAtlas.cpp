@@ -54,14 +54,14 @@ bool SpriteAtlas::LoadSheet(const char *path)
     {        
         rectangle = parseClipRect(subTextureElement);
         
-        rectangle->Print();
+        //rectangle->Print();
         
         _clipRects.push_back(rectangle);
     }
     
     Reset();
     
-    xmlFile->document->Print();
+    //xmlFile->document->Print();
     
     return true;
 }

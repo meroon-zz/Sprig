@@ -3,9 +3,7 @@
 #include <string>
 
 #include "Game.h"
-
-
-
+#include "SprigScreen.h"
 
 
 using std::string;
@@ -25,6 +23,7 @@ public:
     void update();
     
     string& getBasePath();
+    Screen screen;
     
 private:
     

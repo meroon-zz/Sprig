@@ -8,14 +8,12 @@
 
 #include "SprigScreen.h"
 
-Screen *Screen::_instance = NULL;
-
-Screen* Screen::getInstance()
+float Screen::getWidth()
 {
-    if (_instance == NULL) {
-        
-        _instance = new Screen;
-    }
-    
-    return _instance;
+    return dimensions.width;
+}
+
+float Screen::getHeight()
+{
+    return dimensions.height;
 }

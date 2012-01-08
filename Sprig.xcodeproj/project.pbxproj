@@ -80,7 +80,7 @@
 		962E98DD146C9796008D0BB0 /* SprigBitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigBitmap.cpp; sourceTree = "<group>"; };
 		962E98DE146C9796008D0BB0 /* SprigBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigBitmap.h; sourceTree = "<group>"; };
 		962E98E1146DD64A008D0BB0 /* SprigEntity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SprigEntity.cpp; sourceTree = "<group>"; };
-		962E98E2146DD64A008D0BB0 /* SprigEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; path = SprigEntity.h; sourceTree = "<group>"; };
+		962E98E2146DD64A008D0BB0 /* SprigEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SprigEntity.h; sourceTree = "<group>"; };
 		962E98EE1471A40C008D0BB0 /* sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprite.png; sourceTree = "<group>"; };
 		962E98F01471B1AC008D0BB0 /* noise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noise.png; sourceTree = "<group>"; };
 		962E98F21471B40F008D0BB0 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
